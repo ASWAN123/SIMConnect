@@ -1,43 +1,30 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+
+
 function Signup() {
-    const [ email , setEmail]  = useState('')
-    const [password , setPassword] = useState('')
+
 
     return (
         <div className='min-w-[350px] max-w-[350px]  mx-auto mt-12 '>
             <form action="" className=' flex flex-col gap-2'>
-                <p className='text-center text-[20px] mb-4 '>Register an account</p>
+                <p className='text-center text-[20px] mb-4  text-gray-600'>Register An Account</p>
+
                 <div className='flex gap-2 '>
-                    <input placeholder='First Name' className='w-[50%] outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="text" />
-                    <input placeholder='Last name' className='w-[50%] outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="text" name="" id="" />
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <input placeholder='Email' className='outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' value={email} onChange={(e) => {setEmail(e.target.value)}} type="Email" name="email" id="email" />
-                </div>
-                <div className='flex flex-col gap-2'>
-                    
-                    <input placeholder='Password' className='outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type="Password" name="password" id="password" />
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <input placeholder='City' className='outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type="Password" name="password" id="password" />
-                    <input placeholder='Zipcode' className='outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type="Password" name="password" id="password" />
-                    <input placeholder='Address' className='outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type="Password" name="password" id="password" />
+                    <input placeholder='First Name' className=' capitalize text-[14px] text-gray-500 w-[50%] outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="text" name="First_Name" id="First_Name" />
+                    <input placeholder='Last name' className=' capitalize text-[14px] text-gray-500 w-[50%] outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="text" name="Last_name" id="Last_name" />
                 </div>
 
-                <div className='flex flex-col gap-2'>
-                    
-                    <input placeholder='Phone (212)456-7890' className='outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type="Password" name="password" id="password" />
-                </div>
+                <input placeholder='Email' className=' capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="Email" name="Email" id="Email" />
+                <input placeholder='Password' className=' capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="Password" name="password" id="password" />
+                <input placeholder='City' className=' capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="City" name="City" id="City" />
+                <input placeholder='Zipcode' className=' capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="Zipcode" name="Zipcode" id="Zipcode" />
+                <input placeholder='Address' className=' capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="address" name="adaddress" id="address" />
+                <input placeholder='Phone (212)456-7890' className=' capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-8 border rounded-sm' type="phone" name="phone" id="phone" />
+                <input className='bg-green-400 px-3 py-1 rounded-sm mt-4 hover:cursor-pointer ' type="submit" value="Sign up" />
 
-                <input className='bg-green-400 px-3 py-1 rounded-sm mt-4 hover:cursor-pointer ' type="submit" value="Sign up"/>
             </form>
-            <div className='flex flex-col gap-2 items-center mt-4'>
-                <p>or</p>
-                <Link to="/login" className='text-blue-400 px-3 py-1 rounded-sm ' >Login in</Link>
-            </div>
         </div>
-  )
+    )
 }
 
 export default Signup
