@@ -2,9 +2,9 @@ import React from 'react'
 
 function Pricing() {
   return (
-    <section className="flex flex-col gap-8 mt-8 py-8">
+    <section id="pricing" className="flex flex-col gap-8 mt-12 py-8">
     <h2 className="text-[1.5rem] font-semibold mb-8">Plans & Pricing</h2>
-    <div id="pricing" className="flex gap-4  justify-center items-center " >
+    <div  className="flex gap-4  justify-center items-center " >
       {/* basic */}
       <div className="bg-white pb-2 flex flex-col gap-2 items-center justify-between rounded-xl min-w-[250px] max-w-[250px] ">
         <div className="flex flex-col gap-4 relative">
