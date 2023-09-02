@@ -1,5 +1,9 @@
 import React from 'react'
 
+
+/// scroll into  view  , offset
+
+
 function Pricing() {
   return (
     <section id="pricing" className="flex flex-col gap-8 mt-12 py-8">
