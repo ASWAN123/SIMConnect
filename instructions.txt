@@ -4,3 +4,29 @@ Home => {
     }
     logout => Home
 }
+
+Dashboard ==>  {
+    Header {
+        [ orders , plans , support  ]
+        order a sim card
+        profile icons {
+            profile , 
+            log out
+        }
+
+    }
+    main => {
+        card  , 
+        chart data  usuage ,  some  updates ,  
+    }
+}
+
+Dashboard
+SIM Card Management [Activate SIM , SIM Card Details , SIM Replacement , ]
+Billing History [ Billing History , Payment Methods , Auto-Pay  ]
+Plans and Services [ Current Plan , Upgrade/Downgrade Plan , International Roaming ]
+Usage History [ Data Usage , Call and Text Logs ]
+Settings
+Refer-a-Friend
+Network Coverage Map
+My Devices
