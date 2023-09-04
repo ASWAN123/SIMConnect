@@ -30,3 +30,114 @@ Settings
 Refer-a-Friend
 Network Coverage Map
 My Devices
+
+
+
+i will first be  in the  #home  page
+then  i need  to  be  able  to see  some  information about  the  Services
+then off  course in price  card i can  decide  if  i want  to start subscription direct  
+then  i will get  redirect  to  the  #login or  sign  up and  after  sign  up i must  be  able to  fill all the  information  needed  
+
+then  the  users  are  2  kinds  of  users one  comes  with  attention to buy something  and  the  other  one  comes  to  just  #sign  up
+
+user  1  :i  will have  one  notification  saying  i need  to  complete  my  order  
+user  2  : he  will see  nothing  just  an  empty #dashbaord
+
+
+then  the  user  now  is  on the  #dahsbaord 
+
+what  he  can  do  he can do  as  first time in the  website  
+
+he  will need  to  order  a  sim card if he  does  not  have  one  already 
+
+ordering  process  will be  a just  a  survey that  collect  some  information  like  pick one  phone  number  shows  a  subscription  and  go  to  pay thats  all and  he  will be  able  to  do  auto payment 
+
+afer finishing  order  the  user  go  redirected  to  #orders  page  to see  the  status  of his  order  and  after  the  order  delivered  and the  website  will notify the  user  to go  to  purchase  points  to  get  his  sim  card  
+
+in #billing page  he  will be  able  to see  when his  next payment  will be  processed and  also he  can  cancel  the  subscription 
+
+now  he  has  everyhting  ready  for his  first  time  experience 
+
+now the user  is  ready to  explore  the  rest  pages  of  the  website 
+
+
+#Dashboard : in #dahsbaord the  user will be  able  to see  his  active  cards  and  also  Usage History :   of  the  resources  call messages data during  the  day  maybe  live  show something  like  that the  user  is  always  welcome  to  order  another  sim  card  with  diffirent  plan  if  wants  to  and  also  in dahsboard  for  cards  section  we  he  should  be  able  to  see  call and  messages  logs  for  one  of  his  sim cards  ,  also  the  user  can still upgrade  or  downgrade  his  plan and  i will lead  him to the  pay  the  diffirnetce  between  the  original  plana and  next  plan  
+
+#SIM Card Management : for  this  page  the  user can   activate  the  card  or the  desictivate and  also  he  can  requests  a  sim  card  replacement  he  can  give  me as  a  reason  why  is  it  because  damage  or phone  number  change  only and  also  he  can  control the  speed  of  internet  and  also  3g  or  4g  or  5g  or he  can  choose  to  accept  International calls  or  not also  he  can  set  up redirect  message  or  call to another  sim card  with  the  same  provider  
+
+#Billing History  : in this  page   the  user  can  see  his  payment  history  and  also upcoming  payment  for  next  month  and  also  he  can  edit  payement  method
+
+#Refer-a-Friend : in this  page  the  user  can  see  a  refer  link  he  can  send  it  with  share  button with  anyone  email ,  whatsap 
+Network Coverage Map : in this  page  we  will show some  country  where it  posible  to  use  that  sim  card will all features  and  also  maybe  i can  add  input  where  the  user  can do  check  for  his  country  
+My Devices : in this  page  the  user  can  see  deviced  that  he  is  using  for  his  same  card  no deviced  scanned  yet  
+
+
+
+
+Certainly, here are the instructions organized and presented more clearly:
+
+**User Flow on the Website:**
+
+1. Start on the **#home** page.
+2. Access information about the available **Services**.
+3. Decide whether to subscribe directly from the **price card**.
+4. Proceed to **#login** or **sign up** after making a decision.
+5. Complete all necessary information during the **sign-up process**.
+
+**User Types:**
+
+- User Type 1: Receives a notification to complete their order.
+- User Type 2: Arrives at an empty **#dashboard**.
+
+**Dashboard (#dashboard):**
+
+- View active cards and usage history (calls, messages, data).
+- Order another SIM card with different plans.
+- Access call and message logs for one of their SIM cards.
+- Upgrade or downgrade their plan.
+- Pay the difference between the current plan and the next plan.
+
+
+Orders Page (#orders):
+
+Track the status of your previous orders.
+View your order history.
+Make new orders or related actions (if applicable).
+
+
+**SIM Card Management (#SIM Card Management):**
+
+- Activate or deactivate the card.
+- Request a SIM card replacement (provide reasons).
+- Control internet speed (3G, 4G, 5G).
+- Accept or decline international calls.
+- Set up call or message redirection to another SIM card with the same provider.
+- Set daily limit
+- Set data  restriction for  apps  facebook , tiktok , instagram
+
+**Billing History (#Billing History):**
+
+- View payment history.
+- Check upcoming payments for the next month.
+- Edit payment methods.
+
+**Refer-a-Friend (#Refer-a-Friend):**
+
+- Obtain a referral link to share via email or WhatsApp.
+
+**Network Coverage Map (#Network Coverage Map):**
+
+- Display countries where the SIM card can be used.
+- Include an input for users to check their country's compatibility.
+
+**My Devices (#My Devices):**
+
+- View devices associated with their SIM card.
+
+Please note that these instructions are organized for clarity and ease of understanding, but the implementation and design details would need to be worked out in the website development process.
+
+
+
+
+
+
