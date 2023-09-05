@@ -4,6 +4,9 @@ import { BiMessageRounded } from 'react-icons/bi'
 import { IoCallSharp } from 'react-icons/io5'
 import Dash_Header from './Dash_Header'
 import {TbPlus} from 'react-icons/tb'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import {IoIosPhonePortrait} from 'react-icons/io'
 
 
 const Dashbaord = () => {
@@ -158,6 +161,35 @@ const Dashbaord = () => {
       </div>
 
 
+      <div className='mt-10 flex flex-col gap-8 mb-[100px]'>
+        <h1 className='text-[18px] text-black'>Account Summary</h1>
+        <div className='border w-[80%] mx-auto h-[150px] flex gap-4 items-center justify-between p-4'>
+          <div className='flex flex-col gap-4 items-center  justify-center'>
+            <IoIosPhonePortrait size={38}/>
+            <p>Realme Narzo 60x</p>
+            <p></p>
+          </div>
+          <div className='flex gap-4'>
+            <div style={{ width: 150, height: 150 }}>
+            <CircularProgressbar value={66} text='78 Minute' />
+          </div>
+          <div style={{ width: 150, height: 150 }}>
+          <CircularProgressbar value={66} text='46 Message' />
+        </div>
+        <div style={{  fontSize:14 , width: 150, height: 150 }}>
+          <CircularProgressbar   value={66} text='20 GB' />
+        </div>
+
+          </div>
+
+            
+        </div>
+
+
+
+      </div>
+
+
       <div className='mt-8 flex flex-col gap-8'>
         <h1 className='text-[18px] text-black'>Today's Usage</h1>
 
@@ -182,7 +214,7 @@ const Dashbaord = () => {
                       ? (Math.floor(x.dataUsage / 10) / 100).toFixed(2) + ' GB'
                       : x.dataUsage + ' MO'
                   }</td>
-                  <td className={x.status == 'Running' ? ' text-left py-4  text-green-500 rounded-full' : ' text-left py-4  text-red-500 rounded-full'}>{x.status}</td>
+                  <td className={x.status === 'Running' ? ' text-left py-4  text-green-800 rounded-full' : ' text-left py-4  text-red-700 rounded-full'}>{x.status}</td>
                   <td className=' text-left py-4  '>{x.priority}</td>
                   <td className=' py-4  text-center'>{x.networkAccess}</td>
                 </tr>
@@ -197,15 +229,7 @@ const Dashbaord = () => {
 
 
 
-      <div className='mt-10 flex flex-col gap-8 mb-[100px]'>
-        <h1 className='text-[18px] text-black'>Account Summary</h1>
-        <div>
-            
-        </div>
 
-
-
-      </div>
 
 
 
