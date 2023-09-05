@@ -8,11 +8,18 @@
   box-sizing: border-box;
 }
 
+/* 'text': '#1f1005',
+'background': '#fdf7f2',
+'primary': '#8dc3ec',
+'secondary': '#f1c7a7',
+'accent': '#1d70af', */
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap') ;
 
 body{
   font-family: "Noto Sans" sans-serif ;
-  background-color: #fcf8fb ;
+  /* background-color: #fcf8fb ; */
+  background-color: whitesmoke;
   /* background-color: #ffffff; */
 }
 
