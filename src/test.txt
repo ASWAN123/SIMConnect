@@ -1,0 +1,228 @@
+function updateTrackingStatus() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Returns");
+  var lastRow = sheet.getLastRow();
+  var trackingColumn = sheet.getRange("J2:J" + lastRow);
+  var trackingNumbers = trackingColumn.getValues();
+  var statusColumn = sheet.getRange("K2:K" + lastRow);
+
+
+
+
+
+
+
+  for (var i = 0; i < trackingNumbers.length; i++) {
+    var trackingNumber = trackingNumbers[i][0];
+    var statusCell = statusColumn.getCell(i + 1, 1);
+    var currentStatus = statusCell.getValue();
+
+    if (trackingNumber && trackingNumber.toLowerCase().trim() !== 'no data') {
+      if ( currentStatus.trim().toLowerCase().includes("delivered") == false && currentStatus.trim().toLowerCase() !== "unvalid tracking number" ) {
+
+
+        var url = 'https://tz.17track.net/restapi/track';
+        var headers = {
+          'authority': 'tz.17track.net',
+          'accept': 'application/json, text/plain, */*',
+          'accept-language': 'en-US,en;q=0.9',
+          'content-type': 'application/json',
+          'last-event-id': '657572742f312f61316131313261366138312f303a35683a312d7179112605b746f4e67c6a7',
+          'origin': 'https://m.17track.net',
+          'referer': 'https://m.17track.net/',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-site',
+          'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'
+        };
+
+        var payload = {
+          "version": "m1.0",
+          "timeZoneOffset": -60,
+          "guid": "",
+          "data": [
+            {
+              "num": trackingNumber,
+              "fc": 0,
+              "sc": 0
+            }
+          ]
+        };
+
+        
+        var options = {
+          'method': 'post',
+          'headers': headers,
+          'payload': JSON.stringify(payload)
+        };
+
+        var response = UrlFetchApp.fetch(url, options);
+        Utilities.sleep(1000);
+        response = UrlFetchApp.fetch(url, options);
+
+
+        if (response.getResponseCode() === 200) {
+          var data = JSON.parse(response.getContentText());
+          console.log(data)
+          let status;
+
+          if (data && data['dat'] && data['dat'][0] && data['dat'][0]['track'] && data['dat'][0]['track']['z0'] && data['dat'][0]['track']['z0']['z'] !== undefined) {
+            status = data['dat'][0]['track']['z0']['z'];
+            statusCell.setValue(status);
+          } else {
+            status = '';
+            if ( data['dat'][0]['track'] === null ){
+              statusCell.setValue('no data')
+            }else{
+              let order = data['dat'][0]['track']['z0'] === null ?  statusCell.setValue('unvalid tracking number') : statusCell.setValue('no data');
+
+            }
+          }
+
+
+
+          var refundCell1 = statusCell.offset(0, 1).getValue()
+          var refundCell2 = statusCell.offset(0, 2).getValue()
+
+          if (status.trim().toLowerCase().includes("delivered") && refundCell1.toLowerCase().trim() === "refunded" && refundCell2.toLowerCase().trim() === "refunded") {
+            var range = sheet.getRange("D" + (i + 2) + ":M" + (i + 2));
+            range.setBackground("green");
+            range.setFontColor("white");
+            SpreadsheetApp.flush();
+          }
+
+          if (status.trim().toLowerCase().includes("delivered") && refundCell1.toLowerCase().trim() === "refunded" && refundCell2.toLowerCase().trim() === "account restricted") {
+            var range = sheet.getRange("D" + (i + 2) + ":M" + (i + 2));
+            range.setBackground("orange");
+            range.setFontColor("black");
+
+            SpreadsheetApp.flush();
+
+          }
+
+
+          if (status.trim().toLowerCase().includes("delivered") && refundCell1.toLowerCase().trim() === "refunded" && refundCell2.toLowerCase().trim() === "refund in process") {
+            var range = sheet.getRange("D" + (i + 2) + ":M" + (i + 2));
+            range.setBackground("blue");
+            range.setFontColor("black");
+            SpreadsheetApp.flush();
+
+          }
+
+          if ( status.trim().toLowerCase().includes("delivered") == false && refundCell1.toLowerCase().trim() === "label not used") {
+            var range = sheet.getRange("D" + (i + 2) + ":M" + (i + 2));
+            range.setBackground("white");
+            range.setFontColor("black");
+            SpreadsheetApp.flush();
+          }
+
+          if ( status.trim().toLowerCase().includes("delivered")  && refundCell1.toLowerCase().trim() === "label not used") {
+            var range = sheet.getRange("D" + (i + 2) + ":M" + (i + 2));
+            range.setBackground("blue");
+            range.setFontColor("black");
+            SpreadsheetApp.flush();
+          }
+
+          if ( status.trim().toLowerCase().includes("delivered") && refundCell1.toLowerCase().trim() === "" && refundCell2.toLowerCase().trim() === "") {
+            var range = sheet.getRange("D" + (i + 2) + ":M" + (i + 2));
+            range.setBackground("blue");
+            range.setFontColor("black");
+            SpreadsheetApp.flush();
+          }
+
+        } else {
+          statusCell.setValue('no data');
+        }
+
+
+      }
+    } else {
+
+      statusCell.setValue('no data');
+      SpreadsheetApp.flush();
+    }
+  }
+  let lastupdate = sheet.getRange('k1').setValue(new Date().toString())
+}
+
+
+function onEdit(e) {
+  var editedRange = e.range;
+  var editedColumn = editedRange.getColumn();
+  var editedSheetName = editedRange.getSheet().getName();
+
+  if (editedSheetName === "Returns" && (editedColumn === 11 || editedColumn === 12 || editedColumn === 13)) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Returns");
+    var lastRow = sheet.getLastRow();
+    var range = sheet.getRange("K2:M" + lastRow);
+    var values = range.getValues();
+
+    for (var row = 0; row < values.length; row++) {
+      var bValue = values[row][0].toString().toLowerCase().trim();
+      var cValue = values[row][1].toString().toLowerCase().trim();
+      var dValue = values[row][2].toString().toLowerCase().trim();
+
+      var rowIndex = row + 2; // Adjust the row index by adding 2 to start from row 2
+
+      // all is  good
+      if (bValue.includes("delivered")  && cValue === "refunded" && dValue === "refunded") {
+        var startColumn = 4; // Specify the starting column index (B = 4) <<<((the start of coloring ranges))>>>
+        var endColumn = 13; // Specify the ending column index (D = 14)  <<<(( the end of coloring ranges))>>>
+        var rowRange = sheet.getRange(rowIndex, startColumn, 1, endColumn - startColumn + 1);
+        rowRange.setBackground("green");
+        rowRange.setFontColor("white");
+      }
+
+      // account restricted
+      if ( bValue.includes("delivered")  && cValue === "refunded" && dValue === "account restricted") {
+        var startColumn = 4; // Specify the starting column index (B = 4) <<<((the start of coloring ranges))>>>
+        var endColumn = 13; // Specify the ending column index (D = 14) <<<(( the end of coloring ranges))>>>
+        var rowRange = sheet.getRange(rowIndex, startColumn, 1, endColumn - startColumn + 1);
+        rowRange.setBackground("orange");
+        rowRange.setFontColor("black");
+      }
+
+      // refund in process
+      if (bValue.includes("delivered")  && cValue === "refunded" && dValue === "refund in process") {
+        var startColumn = 4; // Specify the starting column index (B = 4) <<<((the start of coloring ranges))>>>
+        var endColumn = 13; // Specify the ending column index (D = 14) <<<(( the end of coloring ranges))>>>
+        var rowRange = sheet.getRange(rowIndex, startColumn, 1, endColumn - startColumn + 1);
+        rowRange.setBackground("blue");
+        rowRange.setFontColor("black");
+        // Default color
+      }
+
+      // label not yet used
+      if (bValue.includes("delivered") ==false && cValue === "label not used") {
+        var startColumn = 4; // Specify the starting column index (B = 4) <<<((the start of coloring ranges))>>>
+        var endColumn = 14; // Specify the ending column index (D = 14) <<<(( the end of coloring ranges))>>>
+        var rowRange = sheet.getRange(rowIndex, startColumn, 1, endColumn - startColumn + 1);
+        rowRange.setBackground("white");
+        rowRange.setFontColor("black");
+        // Default color
+      }
+
+      // label not yet used
+      if (bValue === "") {
+        var startColumn = 4; // Specify the starting column index (B = 4) <<<((the start of coloring ranges))>>>
+        var endColumn = 13; // Specify the ending column index (D = 14) <<<(( the end of coloring ranges))>>>
+        var rowRange = sheet.getRange(rowIndex, startColumn, 1, endColumn - startColumn + 1);
+        rowRange.setBackground("white");
+        rowRange.setFontColor("black");
+        // Default color
+      }
+
+      // refund in process
+      if ( bValue.includes("delivered")  && cValue.trim() === "" && dValue.trim() === "") {
+        var startColumn = 4; // Specify the starting column index (B = 4) <<<((the start of coloring ranges))>>>
+        var endColumn = 13; // Specify the ending column index (D = 14) <<<(( the end of coloring ranges))>>>
+        var rowRange = sheet.getRange(rowIndex, startColumn, 1, endColumn - startColumn + 1);
+        rowRange.setBackground("blue");
+        rowRange.setFontColor("black");
+        // Default color
+      }
+
+
+
+    }
+  }
+}

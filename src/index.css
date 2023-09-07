@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 /* 'text': '#1f1005',
 'background': '#fdf7f2',
 'primary': '#8dc3ec',
@@ -19,7 +23,8 @@
 body{
   font-family: "Noto Sans" sans-serif ;
   /* background-color: #fcf8fb ; */
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
+  background-color: #eaf6f3;
   /* background-color: #ffffff; */
 }
 

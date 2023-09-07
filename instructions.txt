@@ -133,11 +133,30 @@ Make new orders or related actions (if applicable).
 **My Devices (#My Devices):**
 
 - View devices associated with their SIM card.
+- 
+
+**profile (# Profile):**
+information of the  user
+
 
 Please note that these instructions are organized for clarity and ease of understanding, but the implementation and design details would need to be worked out in the website development process.
 
 
 
+i want  the number  to  plink with  color  when  the  number  change
+
+
+    --text: #0c1c19;
+    --bg: #eaf6f3;
+    --primary: #beb1dd;
+    --secondary: #eed8dc;
+    --accent: #90ae4c;
+    --primarycontrast: #64d97b;
+    --secondarycontrast: #64d97b;
+    --accentcontrast: #ff8f8f;
+    --textcontrast: #64d97b;
+    --bgcontrast: #64d97b;
 
 
 
+    xcc
