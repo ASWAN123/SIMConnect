@@ -143,7 +143,7 @@ Please note that these instructions are organized for clarity and ease of unders
 
 
 
-i want  the number  to  plink with  color  when  the  number  change
+i want  the number  to  plink with  color  when  the  number  chang
 
 
     --text: #0c1c19;
@@ -159,4 +159,3 @@ i want  the number  to  plink with  color  when  the  number  change
 
 
 
-    xcc

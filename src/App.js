@@ -12,6 +12,7 @@ import Billinghistory from './components/userspace/Billinghistory'
 import Networkmap from './components/userspace/Networkmap'
 import Devices from "./components/userspace/Devices";
 import Referafriend from "./components/userspace/Referafriend";
+import Orderdetails from "./components/userspace/Orderdetails";
 function App() {
 
 
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/" element={<LandingPage />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
-          <Route exact path="/dashboard" element={<Dashbaord />}>
+          <Route exact path="/account" element={<Dashbaord />}>
             <Route index element={<Maindash />} />
             <Route exact path="orders" element={ <Orders />  } />
             <Route exact path="sim-card-management" element={ <Simcardmanagement />  } />
@@ -34,7 +35,6 @@ function App() {
             <Route exact path="devices" element={ <Devices />  } />
             <Route exact path="refer-a-friend" element={ <Referafriend />  } />
             
-
           </Route>
         </Routes>
       </div>
