@@ -3,6 +3,7 @@ import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import { GiConfirmed } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
+import Orderdetails from "./Orderdetails";
 const Orders = () => {
   const data = [
     {
@@ -86,75 +87,9 @@ const Orders = () => {
         <div className="w-full pl-6 flex flex-col items-center justify-between gap-4">
           {/* order details   */}
 
-          <div className="absolute shadow-md p-4 z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[500px] rounded-lg bg-gray-50 ">
-            <div className="flex flex-col gap-4 relative">
-              <GrClose
-                size={26}
-                className=" cursor-pointer rounded-full  absolute right-1 top-0 "
-              />
-              <img src="/complete.png" className="w-[50px] mx-auto " alt="" />
-              <p className="text-center w-full text-[20px]">
-                Thank You ! :
-                <span className="text-green-600  ">Order Success</span>
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 ">
-              <p className=" ">
-                Order details :{" "}
-                <span className=" text-blue-500 ">#123123123</span>
-              </p>
+          { showDetails.show && <Orderdetails setShowDetails ={setShowDetails} showDetails ={showDetails}/> }
 
-              <p>To :</p>
-              <address className="flex flex-col gap-1">
-              <p>Jane Doe</p>
-              <p>Los Angeles, CA</p>
-              <p>123 Main Street, 90210</p>
-              
-              </address>
-            </div>
-            <div className="flex items-center  justify-between px-[15%] mt-8   ">
-              <div className="flex flex-col gap-2 items-center justify-center ">
-                <GiConfirmed size={24} color="lightgreen" />
-                <p>Ordered</p>
-              </div>
-              <hr className="w-full" />
-              <div className="flex flex-col gap-2 items-center justify-center ">
-                <GiConfirmed size={24} />
-                <p>Processing</p>
-              </div>
-              <hr className="w-full" />
-              <div className="flex flex-col gap-2 items-center justify-center ">
-                <GiConfirmed size={24} />
-                <p>Delivered</p>
-              </div>
-            </div>
-            <hr className="w-full mt-8 " />
-            <div className="w-full mt-4 px-4 py-2 border-t-black flex gap-2 items-center justify-between ">
-              <div className="flex items-center gap-2 ">
-                <p>plan :</p>
-                <span>Free</span>
-              </div>
-              <div className="flex items-center gap-2 ">
-                <p>ID :</p>
-                <span>123123</span>
-              </div>
-              <div className="flex items-center gap-2 ">
-                <p>payemnt :</p>
-                <span>VIsa ending ...4545</span>
-              </div>
-              <div className="flex items-center gap-2 ">
-                <p>status :</p>
-                <span>Processing</span>
-              </div>
-              <div className="flex items-center gap-2 ">
-                <p>Ordered at :</p>
-                <span>25-01-2023 20:34</span>
-              </div>
-            </div>
-            <div>
-              
-            </div>
-          </div>
+
 
           <table className="w-full border-separate border-spacing-y-2 table-fixed  ">
             <thead className="">
@@ -203,8 +138,8 @@ const Orders = () => {
                         {order.status}
                       </p>
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg  py-3 px-1 hover:cursor-pointer ">
-                      <div>
+                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg  py-3 px-1 ">
+                      <div onClick={()=> {setShowDetails({ show: true , id: order.id })}} className="cursor-pointer  w-fit mx-auto">
                         <BsFillArrowDownCircleFill
                           size={20}
                           color="black"

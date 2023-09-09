@@ -1,7 +1,7 @@
 import React from 'react'
-import SimCards from './SimCards'
+import SimCards from './Sim_Cards'
 import Accountsummary from './Accountsummary'
-import Todayusage from './Todayusage'
+import Todayusage from './Today_usage'
 
 const Maindash = () => {
 

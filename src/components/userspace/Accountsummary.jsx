@@ -4,6 +4,8 @@ import "react-circular-progressbar/dist/styles.css";
 import { IoIosPhonePortrait } from "react-icons/io";
 
 const Accountsummary = () => {
+  
+
   return (
     <div className="mt-10 flex flex-col gap-8  ">
       <h1 className="text-[24px] text-black">Account Summary</h1>

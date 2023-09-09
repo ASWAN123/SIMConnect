@@ -53,7 +53,7 @@ function Signup() {
                     <input {...register("AcceptTerms")} type="checkbox" name="AcceptTerms" id="AcceptTerms" />
                     <p className='text-[14px] text-gray-600'>Accept terms and conditions</p>
                 </div>
-                <input className='bg-green-400 px-3 py-2 rounded-sm mt-2 hover:cursor-pointer ' type="submit" value="Sign up" />
+                <input className='hover:bg-[#000435]/40 bg-[#000435] text-white px-3 py-2 rounded-sm mt-2 hover:cursor-pointer ' type="submit" value="Sign up" />
             </form>
         </div>
     )

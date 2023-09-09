@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from "react-router-dom";
 
-import Dashheader from './Dashheader'
+import Dashheader from './Dash_header'
 
 import Accountsummary from './Accountsummary'
-import Todayusage from './Todayusage'
-import SimCards from './SimCards'
+import Todayusage from './Today_usage'
+import SimCards from './Sim_Cards'
 import { IoChatboxEllipsesSharp} from 'react-icons/io5'
 
 
@@ -27,7 +27,7 @@ const Dashbaord = () => {
 
 
 
-      <IoChatboxEllipsesSharp size={50} color="blue" className='fixed bottom-4 right-10 cursor-pointer ' />
+      {/* <IoChatboxEllipsesSharp size={50} color="blue" className='fixed bottom-4 right-10 cursor-pointer ' /> */}
 
 
 
