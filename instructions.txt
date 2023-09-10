@@ -159,3 +159,25 @@ i want  the number  to  plink with  color  when  the  number  chang
 
 
 
+
+
+step 1 personal  info
+first name last name 
+email , password 
+
+step 2 location
+country , 
+
+
+step 3 subscription plan
+plan 1 ,  plan 2 , plan 3
+
+step 4 pick  a number 
+number  , 
+
+
+step 5  payment
+pay with  ,  paypal , credit card  , mastercard  , strip 
+
+step 6 congrats
+congratulation and  wait 5  seconds  before  sending  the  guy to the  the  dashbaord 

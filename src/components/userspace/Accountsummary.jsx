@@ -2,7 +2,7 @@ import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { IoIosPhonePortrait } from "react-icons/io";
-
+import  {LiaCoinsSolid} from 'react-icons/lia'
 const Accountsummary = () => {
   
 
@@ -16,7 +16,7 @@ const Accountsummary = () => {
           <div className="flex gap-2 flex-col text-gray-500">
             <p className=" font-semibold">Realme Narzo 60x</p>
             <p>06 53 945 963</p>
-            <p>Balance : {"5.67"} $</p>
+            <p className="flex gap-2 items-center  ">Balance : 500 <LiaCoinsSolid size={20} color="orange" /></p>
           </div>
           
         </div>

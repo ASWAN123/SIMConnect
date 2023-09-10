@@ -26,11 +26,16 @@ body{
   /* background-color: whitesmoke; */
   background-color: #eaf6f3 ;
   /* background-color: #ffffff; */
+  font-size: 14px;
 }
 
 html {
   scroll-behavior : smooth ;
 }
 
+
+.react-select div{
+  background-color: transparent;
+}
 
 

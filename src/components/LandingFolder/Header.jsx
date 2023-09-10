@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header className="flex gap-4 items-center justify-between py-4 sticky top-0 w-full z-10 border-b bg-[#eaf6f3]">
+    <header className="min-h-[70px] max-h-[70px] py-2 flex gap-4 items-center justify-between  text-[14px] sticky top-0 w-full z-10 border-b bg-[#eaf6f3]">
     <Logo/>
-    <ul className="flex gap-4">
+    <ul className="flex gap-4 text-gray-600">
         <li className="hover:cursor-pointer hover:text-blue-400"><a href="#pricing">Discover</a></li>
         <li className="hover:cursor-pointer hover:text-blue-400">Activation & Setup</li>
         <li className="hover:cursor-pointer hover:text-blue-400">Plans & Pricing</li>

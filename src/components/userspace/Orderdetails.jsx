@@ -15,11 +15,11 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
                 Order details :{" "}
                 <span className=" text-blue-500 ">#123123123</span>
               </p>
-          <div  className="  cursor-pointer  flex flex-col gap-4 relative" >
+          <div  className="  cursor-pointer  flex flex-col gap-4  relative" >
             <GrClose
               size={26}
               onClick={() => {setShowDetails({...showDetails ,  show:false})}}
-              className=" rounded-full  absolute right-1 top-0 "
+              className=" rounded-full  absolute right-1 -top-5 "
             />
             <img src="/complete.png" className="w-[50px] mx-auto " alt="" />
             <p className="text-center w-full text-[20px] text-green-700">

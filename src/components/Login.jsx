@@ -11,7 +11,7 @@ function Login() {
 
 
     return (
-        <div className='min-w-[350px] max-w-[350px] mt-12  mx-auto  '>
+        <div className='min-w-[350px] max-w-[350px] mt-12  mx-auto '>
             <form action="" className=' flex flex-col gap-2'>
                 <p className='text-center text-[20px] mb-4 text-black'>Log Into Your Account</p>
                 
