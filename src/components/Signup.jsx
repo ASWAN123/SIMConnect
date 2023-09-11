@@ -14,6 +14,41 @@ function Signup() {
   const [formstep, setFormstep] = useState(1);
   const options = useMemo(() => countryList().getData(), []);
   const [value, setValue] = useState("");
+  const [subscription, setSubscription] = useState(0);
+  const plans = [
+    {
+      name: "Basic",
+      price: "0",
+      data: "2GB",
+      minutes: "100",
+      sms: "50",
+      coverage: "Nationwide",
+    },
+    {
+      name: "Standard",
+      price: "25",
+      data: "5GB",
+      minutes: "Unlimited",
+      sms: "Unlimited",
+      coverage: "Nationwide",
+    },
+    {
+      name: "Premium",
+      price: "50",
+      data: "15GB",
+      minutes: "Unlimited",
+      sms: "Unlimited",
+      coverage: "Nationwide",
+    },
+    {
+      name: "Pro",
+      price: "100",
+      data: "Unlimited",
+      minutes: "Unlimited",
+      sms: "Unlimited",
+      coverage: "Worldwide",
+    },
+  ];
 
   const changeHandler = (value) => {
     setValue(value);
@@ -46,30 +81,6 @@ function Signup() {
 
   return (
     <div className="mt-8 w-[90%]  items-center flex flex-col gap-2 mx-auto mb-[100px]">
-      <p className=" text-center text-[20px]  text-gray-600">
-        Register An Account
-      </p>
-      {/* <form action="" onSubmit={handleSubmit(onSubmit)} className=' flex flex-col gap-2'>
-                
-
-                <div className='flex gap-2 '>
-                    <input {...register("First_name")} type='text' placeholder='First Name' className='  placeholder:text-[14px] placeholder:text-gray-400 capitalize text-[14px] text-gray-500 w-[50%] outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                    <input {...register("Last_name")} type='text'  placeholder='Last Name' className=' placeholder:text-[14px] placeholder:text-gray-400  capitalize text-[14px] text-gray-500 w-[50%] outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                </div>
-
-                <input {...register("Email")} type='email' placeholder='Email' className=' placeholder:text-[14px] placeholder:text-gray-400   text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                <input {...register("Password")} type='password'  placeholder='Password' className=' placeholder:text-[14px] placeholder:text-gray-400   text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm' />
-                <input {...register("City")} type='text' placeholder='City' className=' placeholder:text-[14px] placeholder:text-gray-400  capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                <input {...register("Zipcode")} type='number' placeholder='Zipcode' className=' placeholder:text-[14px] placeholder:text-gray-400   text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                <input {...register("Address")} type='text'  placeholder='Address' className=' placeholder:text-[14px] placeholder:text-gray-400  capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                <input {...register("Phone")} type='tel' placeholder='Phone (212)456-7890' className=' placeholder:text-[14px] placeholder:text-gray-400  capitalize text-[14px] text-gray-500 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm'  />
-                <div className='flex gap-1 mt-2'>
-                    <input {...register("AcceptTerms")} type="checkbox" name="AcceptTerms" id="AcceptTerms" />
-                    <p className='text-[14px] text-gray-600'>Accept terms and conditions</p>
-                </div>
-                <input className='hover:bg-[#000435]/40 bg-[#000435] text-white px-3 py-2 rounded-sm mt-2 hover:cursor-pointer ' type="submit" value="Sign up" />
-            </form> */}
-
       <section className="text-gray-500 py-2 flex  gap-4 text-[14px] items-center w-full justify-between px-8  capitalize">
         <div className="w-full text-blue-500 flex flex-col items-center gap-2  justify-center text-center">
           <p className="">Personal information</p>
@@ -175,6 +186,8 @@ function Signup() {
       </section>
 
       <form action="" className=" w-full flex flex-col gap-2 justify-between ">
+        {/* peronal  information */}
+
         {formstep === 1 && (
           <section className="mt-[5%] w-[40%] mx-auto flex flex-col gap-2 ">
             <div className="w-full flex  gap-4 items-center justify-center">
@@ -222,6 +235,8 @@ function Signup() {
           </section>
         )}
 
+        {/* select  country */}
+
         {formstep === 2 && (
           <section className="mt-[5%] w-[40%] mx-auto flex flex-col gap-2 ">
             <Select
@@ -232,186 +247,165 @@ function Signup() {
             />
           </section>
         )}
-
+        
+        {/* subscription  plans */}
         {formstep === 3 && (
           <section className=" w-[80%] mx-auto flex flex-col gap-2 ">
             <div className="flex gap-5 justify-center p-2 ">
-
-              <div className="min-w-[250px] min-h-[250px] bg-blue-200 border rounded-lg flex flex-col justify-between p-4 gap-4 ">
-                <p className="text-center text-[#000435] text-[16px]">
-                  Free / 7 Day Trail 
-                </p>
-                <p>Plan Details:</p>
-                <ul className="flex flex-col gap-1 ">
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <MdOutline4GPlusMobiledata size={18} /> Data: 2GB
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <IoCallSharp size={18} /> Minutes: 100
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <BiMessageRounded size={18} /> SMS: 50
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                      />
-                    </svg>
-                    Coverage: Nationwide
-                  </li>
-                </ul>
-                <button className="px-6 py-2 bg-[#000435] w-fit mx-auto  rounded-md text-white ">
-                  Select
-                </button>
-              </div>
-
-              <div className="min-w-[250px] min-h-[250px] bg-blue-200  border rounded-lg flex flex-col justify-between p-4 gap-4 ">
-                <p className="text-center text-[#000435] text-[16px]">
-                  25 $ /month
-                </p>
-                <p>Plan Details:</p>
-                <ul className="flex flex-col gap-1 ">
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <MdOutline4GPlusMobiledata size={18} /> Data: 5GB
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <IoCallSharp size={18} /> Minutes: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <BiMessageRounded size={18} /> SMS: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                  <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                      />
-                    </svg> Coverage: Nationwide
-                  </li>
-                </ul>
-                <button className="px-6 py-2 bg-[#000435] w-fit mx-auto  rounded-md text-white ">
-                  Select
-                </button>
-              </div>
-
-              <div className="min-w-[250px] min-h-[250px] bg-blue-200  border rounded-lg flex flex-col justify-between p-4 gap-4 ">
-                <p className="text-center text-[#000435] text-[16px]">
-                  50 $ /month
-                </p>
-                <p>Plan Details:</p>
-                <ul className="flex flex-col gap-1 ">
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <MdOutline4GPlusMobiledata size={18} /> Data: 15GB
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <IoCallSharp size={18} /> Minutes: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <BiMessageRounded size={18} /> SMS: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                  <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                      />
-                    </svg> Coverage: Nationwide
-                  </li>
-                </ul>
-                <button className="px-6 py-2 bg-[#000435] w-fit mx-auto  rounded-md text-white ">
-                  Select
-                </button>
-              </div>
-
-              <div className="min-w-[250px] min-h-[250px] bg-blue-200  border rounded-lg flex flex-col justify-between p-4 gap-4 ">
-                <p className="text-center text-[#000435] text-[16px]">
-                  100 $ /month
-                </p>
-                <p>Plan Details:</p>
-                <ul className="flex flex-col gap-1 ">
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <MdOutline4GPlusMobiledata size={18} /> Data: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <IoCallSharp size={18} /> Minutes: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <BiMessageRounded size={18} /> SMS: Unlimited
-                  </li>
-                  <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                  <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                      />
-                    </svg> Coverage: Worldwide
-                  </li>
-                </ul>
-                <button className="px-6 py-2 bg-[#000435] w-fit mx-auto  rounded-md text-white ">
-                  Select
-                </button>
-              </div>
+              {plans.map((x, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="cursor-pointer min-w-[250px] min-h-[250px] bg-gray-100 border rounded-lg flex flex-col justify-between p-4 gap-4 "
+                  >
+                    <p className="text-[#000435] text-[16px] flex gap-2">
+                      {x.name}
+                      {index === subscription && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class={ x.name === "Pro" ? "w-6 h-6  text-orange-400"  : "w-6 h-6  text-green-500" }
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4.5 12.75l6 6 9-13.5"
+                          />
+                        </svg>
+                      )}
+                    </p>
+                    <p className="text-[#000435]">Plan Details:</p>
+                    <ul className="flex flex-col gap-1 ">
+                      <li className="text-gray-600 pl-1 flex gap-1 items-center ">
+                      <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class={ x.name === "Pro" ? "w-6 h-6  text-orange-400"  : "w-6 h-6  text-blue-400" }
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg> Data: {x.data}
+                      </li>
+                      <li className="text-gray-600 pl-1 flex gap-1 items-center ">
+                      <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class={ x.name === "Pro" ? "w-6 h-6  text-orange-400"  : "w-6 h-6  text-blue-400" }
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>Minutes: {x.minutes}
+                      </li>
+                      <li className="text-gray-600 pl-1 flex gap-1 items-center ">
+                      <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class={ x.name === "Pro" ? "w-6 h-6  text-orange-400"  : "w-6 h-6  text-blue-400" }
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg> SMS: {x.sms}
+                      </li>
+                      <li className="text-gray-600 pl-1 flex gap-1 items-center ">
+                        {/* <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-5 h-5"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
+                          />
+                        </svg> */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class={ x.name === "Pro" ? "w-6 h-6  text-orange-400"  : "w-6 h-6  text-blue-400" }
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        Coverage: {x.coverage}
+                      </li>
+                    </ul>
+                    <div className="px-2 flex  gap-2  items-center ">
+                      <p className="text-[#000435] text-[28px] font-semibold ">
+                        {" "}
+                        ${x.price}
+                      </p>
+                      <p className="text-gray-600 ">/ a month</p>
+                    </div>
+                    <input
+                      onClick={() => {
+                        setSubscription(index);
+                      }}
+                      type="button"
+                      value="Select"
+                      className={
+                        index === subscription
+                          ?  x.name === "Pro" ? "px-6 py-2 bg-orange-400 w-[90%] mx-auto cursor-pointer  rounded-sm text-white " :"px-6 py-2 bg-green-500 w-[90%] mx-auto cursor-pointer  rounded-sm text-white "
+                          : "px-6 py-2 w-[90%] bg-[#000435]  mx-auto cursor-pointer  rounded-sm text-white "
+                      }
+                    />
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}
 
-
-
-
-{formstep === 4 && (
+        {/* pick a  phone  number */}
+        {formstep === 4 && (
           <section className=" w-[80%] mx-auto flex flex-col gap-2 ">
-            hi
+            
           </section>
         )}
 
-        <div className="w-full border flex gap-4 items-center justify-end mt-6 p-2">
+        <div className="w-full  flex gap-4 items-center justify-end mt-6 p-2">
           {formstep >= 2 && (
             <input
               type="button"
               value="Back"
               onClick={prevFormstep}
-              className="  bg-blue-400  rounded-md  px-6 py-2  text-white cursor-pointer "
+              className="   rounded-md  px-6 py-2 text-[16px] text-black cursor-pointer "
             />
           )}
           <input
             type="button"
             value="Next"
             onClick={nextFormstep}
-            className="  bg-blue-400  rounded-md  px-6 py-2  text-white cursor-pointer "
+            className="   rounded-md  px-6 py-2 text-[16px] text-black cursor-pointer "
           />
         </div>
       </form>

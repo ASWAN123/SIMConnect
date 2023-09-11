@@ -18,7 +18,7 @@ const Dashheader = () => {
   ];
 
   return (
-    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#eaf6f3] ">
+    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#fcfffa] ">
       <Logo />
       <div className="flex gap-4  ml-4 text-[14px] text-gray-600 ">
         {linksData.map((link, index) => (
