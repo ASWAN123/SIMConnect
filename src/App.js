@@ -13,6 +13,7 @@ import Networkmap from './components/userspace/Networkmap'
 import Devices from "./components/userspace/Devices";
 import Referafriend from "./components/userspace/Referafriend";
 import Orderdetails from "./components/userspace/Orderdetails";
+import { getPhoneNumbers } from "./phoneData/db";
 
 function App() {
 

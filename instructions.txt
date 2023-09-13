@@ -166,14 +166,11 @@ first name last name
 email , password 
 
 step 2 location
-country , 
+country , pick  a number 
 
 
 step 3 subscription plan
 plan 1 ,  plan 2 , plan 3
-
-step 4 pick  a number 
-number  , 
 
 
 step 5  payment
