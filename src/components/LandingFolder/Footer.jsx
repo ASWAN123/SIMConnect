@@ -10,16 +10,15 @@ import {
 
 function Footer() {
   return (
-    <footer className='mt-8 p-4 bg-blue-500 text-white flex gap-4 justify-between mb-8 rounded-md'>
-    <div className=' flex-1 flex flex-col gap-4 '>
-        <Logo color={'#ffffff'} />
-        <p className='text-[14px] pl-4'>Join the SIMConnect revolution today and unlock a world of unparalleled connectivity. Whether it's for business, travel, or everyday use, trust us to keep you connected effortlessly.</p>
-        <div className='flex gap-2 pl-4 '>
-            <AiFillTwitterCircle size={26}  color='white'/>
-            <AiFillInstagram size={26}  color='white'/>
-            <AiFillLinkedin size={26}  color='white'/>
-            <AiFillFacebook size={26}  color='white'/>
-            <AiFillGithub size={26}  color='white'/>
+    <footer className='mt-8 p-4 bg-[#000435] text-gray-50 flex gap-4 justify-between mb-8 rounded-md'>
+    <div className=' flex-1 flex flex-col gap-4 items-center  justify-center '>
+        <Logo color={'gray-50'} />
+        <div className='flex gap-2 px-2 ml-4 rounded-md w-fit '>
+            <AiFillTwitterCircle size={26}  color='#1DA1F2' className='hover:cursor-pointer '/>
+            <AiFillInstagram size={26}  color='#C13584' className='hover:cursor-pointer '/>
+            <AiFillLinkedin size={26}  color='#0077b5' className='hover:cursor-pointer '/>
+            <AiFillFacebook size={26}  color='#1877F2' className='hover:cursor-pointer '/>
+            <AiFillGithub size={26}  color='#4078c0' className='hover:cursor-pointer '/>
         </div>
     </div>
     <div className=' flex-1 flex flex-col gap-4 '>
@@ -48,9 +47,9 @@ function Footer() {
         <p className='text-[14px] '>Feel free to get in touch with us if you have any questions, suggestions, or inquiries. We're here to help!</p>
 
         <form action="" className='flex flex-col gap-2 text-black text-[14px]'>
-        <textarea placeholder='write a message ...' className=' resize-none py-1 bg-gray-200 outline-none h-12 rounded-md px-2 ' name="message" id="" cols="" rows="3"></textarea>
+        <textarea placeholder='write a message ...' className=' resize-none py-1 bg-gray-50 outline-none h-12 rounded-md px-2' name="message" id="" cols="" rows="3"></textarea>
         <div className='flex gap-2 justify-between'>
-            <input className='bg-gray-200 outline-none h-8 rounded-md px-2 ' type="text" name="email" id="email" placeholder='Email' />
+            <input className='bg-gray-50 outline-none h-8 rounded-md px-2 ' type="text" name="email" id="email" placeholder='Email' />
             <input type="submit" name="" id="" value="Send" className='bg-green-400 mx-auto px-6 py-1 rounded-md ' />
             </div>
         </form>

@@ -1,11 +1,12 @@
 import React from "react";
 import { TfiSignal } from "react-icons/tfi";
 
-function Logo({ color }) {
+function Logo({color}) {
+
   return (
-    <div className="flex gap-1 p-1 items-center  ">
-      <TfiSignal size={26} color="blue" />
-      <p className="  text-blue-600 text-[14px] py-1 mb-4">Networka</p>
+    <div className="flex gap-1 p-1  items-end ">
+      <TfiSignal size={26} color="#f97316" />
+      <p className={`  text-${color} text-[18px] border-b-2 border-orange-500 `}>Networka</p>
     </div>
   );
 }

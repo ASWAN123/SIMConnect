@@ -15,17 +15,12 @@ function LandingPage() {
     {/* features jsx */}
     <Features />
 
-
-    {/* choose jsx */}
-    {/* <Choose /> */}
-
-
     {/* pricing */}
     <Pricing />
 
     {/* footer */}
 
-    {/* <Footer /> */}
+    <Footer />
 
 
 

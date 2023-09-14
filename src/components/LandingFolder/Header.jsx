@@ -4,7 +4,7 @@ import Logo from '../Logo'
 import { Link } from 'react-router-dom'
 
 
-
+//bg-[#f9f9f9]
 const Header = () => {
   return (
     <header className=" bg-[#f9f9f9] text-gray-600 min-h-[70px] max-h-[70px] py-2 flex gap-4 items-center justify-between  text-[14px] sticky top-0 w-full z-10  ">
