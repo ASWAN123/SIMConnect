@@ -25,7 +25,7 @@ function App() {
 
   return (
     <Contextprovider >
-      <div className="App mx-auto container relative ">
+      <div className="App mx-auto px-4 relative ">
         { !path.includes('account') && <Header /> }
         <Routes>
           <Route exact path="/" element={<LandingPage />}></Route>

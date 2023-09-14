@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import countryList from "react-select-country-list";
 import Select from "react-select";
-import { getPhoneNumbers } from "../phoneData/db";
+import { getPhoneNumbers } from "../../phoneData/db";
 const Step3 = () => {
   const [picked, setPicked] = useState("");
   const [location, setLocation] = useState("");

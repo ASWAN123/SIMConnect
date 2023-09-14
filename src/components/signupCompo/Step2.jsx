@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Step2 = () => {
-    const [subscription, setSubscription] = useState(0);
+    const [subscription, setSubscription] = useState(3);
     const plans = [
       {
         name: "Basic",
@@ -181,6 +181,7 @@ const Step2 = () => {
           );
         })}
       </div>
+
     </section>
   )
 }

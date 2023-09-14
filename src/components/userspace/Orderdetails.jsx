@@ -10,7 +10,8 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
 
 
     return (
-        <div className="absolute shadow-md p-4 z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[500px] rounded-lg bg-gray-50 ">
+      
+        <div className="absolute shadow-md p-4 z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[500px] rounded-lg bg-[#f9f9f9] ">
         <p className=" ">
                 Order details :{" "}
                 <span className=" text-blue-500 ">#123123123</span>
@@ -81,6 +82,7 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
           {/* order  infos */}
 
         </div>
+        
     )
 }
 

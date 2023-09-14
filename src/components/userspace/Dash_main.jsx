@@ -7,6 +7,10 @@ const Maindash = () => {
 
     return (
         <>
+            <div className='mt-8'>
+                <p className='text-[20px] '>Welcome , <span className='text-blue-500 '>Abderrahim !</span></p>
+            </div>
+
             <SimCards />
 
             <Accountsummary />

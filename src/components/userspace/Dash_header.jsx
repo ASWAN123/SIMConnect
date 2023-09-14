@@ -10,15 +10,15 @@ const Dashheader = () => {
   const linksData = [
     { to: "/account", text: "Dashboard" },
     { to: "/account/orders", text: "Orders" },
-    // { to: "/account/sim-card-management", text: "SIM Card Management" },
-    // { to: "/account/billing-history", text: "Billing History" },
-    // { to: "/account/network-coverage-map", text: "Network Coverage Map" },
-    // { to: "/account/devices", text: "My Devices" },
-    // { to: "/account/refer-a-friend", text: "Refer-a-Friend" },
+    { to: "/account/sim-card-management", text: "SIM Card Management" },
+    { to: "/account/billing-history", text: "Billing History" },
+    { to: "/account/network-coverage-map", text: "Network Coverage Map" },
+    { to: "/account/devices", text: "My Devices" },
+    { to: "/account/refer-a-friend", text: "Refer-a-Friend" },
   ];
 
   return (
-    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#fcfffa] ">
+    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#f9f9f9] ">
       <Logo />
       <div className="flex gap-4  ml-4 text-[14px] text-gray-600 ">
         {linksData.map((link, index) => (
@@ -27,8 +27,8 @@ const Dashheader = () => {
             to={link.to}
             className={
               path === link.to
-                ? "text-blue-500 cursor-pointer"
-                : "cursor-pointer"
+                ? "text-orange-500 cursor-pointer"
+                : "cursor-pointer hover:text-orange-500"
             }
           >
             {link.text}
@@ -37,7 +37,7 @@ const Dashheader = () => {
       </div>
       <div className="flex gap-8 items-center ">
 
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ const Dashheader = () => {
             stroke-linejoin="round"
             d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
           />
-        </svg>
+        </svg> */}
 
         <svg
           xmlns="http://www.w3.org/2000/svg"

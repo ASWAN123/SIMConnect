@@ -73,6 +73,10 @@ const Orders = () => {
     }
   };
 
+  const  handleshowDetails = (x) => {
+    setShowDetails({ show: true , id: x })
+  }
+
   return (
     <div className="mt-8 w-full mb-[100px] ">
       <div className="flex items-center justify-between ">
@@ -139,7 +143,7 @@ const Orders = () => {
                       </p>
                     </td>
                     <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg  py-3 px-1 ">
-                      <div onClick={()=> {setShowDetails({ show: true , id: order.id })}} className="cursor-pointer  w-fit mx-auto">
+                      <div onClick={()=> { handleshowDetails( order.id )}} className="cursor-pointer  w-fit mx-auto">
                         <BsFillArrowDownCircleFill
                           size={20}
                           color="black"
@@ -174,6 +178,7 @@ const Orders = () => {
           </div>
         </div>
       </div>
+      { showDetails.show && <div className="w-full absolute top-0 left-0 bg-gray-700 h-screen z-40  opacity-20 "></div> }
     </div>
   );
 };

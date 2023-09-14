@@ -8,12 +8,12 @@ import countryList from "react-select-country-list";
 // import { BiMessageRounded } from "react-icons/bi";
 // import { IoCallSharp } from "react-icons/io5";
 
-import Step5 from "../signupCompo/Step5";
-import Step4 from "../signupCompo/Step4";
-import Step3 from "../signupCompo/Step3";
-import Step2 from "../signupCompo/Step2";
-import Step1 from "../signupCompo/Step1";
-import Tofollow from "../signupCompo/Tofollow";
+import Step5 from "./signupCompo/Step5";
+import Step4 from "./signupCompo/Step4";
+import Step3 from "./signupCompo/Step3";
+import Step2 from "./signupCompo/Step2";
+import Step1 from "./signupCompo/Step1";
+import Tofollow from "./signupCompo/Tofollow";
 
 function Signup() {
   const { db, auth } = useContextData();
