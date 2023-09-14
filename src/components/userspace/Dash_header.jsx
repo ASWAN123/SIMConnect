@@ -10,10 +10,10 @@ const Dashheader = () => {
   const linksData = [
     { to: "/account", text: "Dashboard" },
     { to: "/account/orders", text: "Orders" },
-    { to: "/account/sim-card-management", text: "SIM Card Management" },
-    { to: "/account/billing-history", text: "Billing History" },
-    { to: "/account/network-coverage-map", text: "Network Coverage Map" },
-    { to: "/account/devices", text: "My Devices" },
+    // { to: "/account/sim-card-management", text: "SIM Card Management" },
+    // { to: "/account/billing-history", text: "Billing History" },
+    // { to: "/account/network-coverage-map", text: "Network Coverage Map" },
+    // { to: "/account/devices", text: "My Devices" },
     // { to: "/account/refer-a-friend", text: "Refer-a-Friend" },
   ];
 
