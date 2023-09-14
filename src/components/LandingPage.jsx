@@ -17,7 +17,7 @@ function LandingPage() {
 
 
     {/* choose jsx */}
-    <Choose />
+    {/* <Choose /> */}
 
 
     {/* pricing */}
@@ -25,7 +25,7 @@ function LandingPage() {
 
     {/* footer */}
 
-    <Footer />
+    {/* <Footer /> */}
 
 
 

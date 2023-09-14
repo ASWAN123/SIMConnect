@@ -10,9 +10,9 @@ import {
 
 function Footer() {
   return (
-    <footer className='mt-8 p-4 bg-gray-800 text-white flex gap-4 justify-between mb-8 rounded-md'>
+    <footer className='mt-8 p-4 bg-blue-500 text-white flex gap-4 justify-between mb-8 rounded-md'>
     <div className=' flex-1 flex flex-col gap-4 '>
-        <Logo/>
+        <Logo color={'#ffffff'} />
         <p className='text-[14px] pl-4'>Join the SIMConnect revolution today and unlock a world of unparalleled connectivity. Whether it's for business, travel, or everyday use, trust us to keep you connected effortlessly.</p>
         <div className='flex gap-2 pl-4 '>
             <AiFillTwitterCircle size={26}  color='white'/>

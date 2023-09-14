@@ -20,13 +20,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap') ;
 
-body{
+body {
   font-family: "Noto Sans" sans-serif ;
-  /* background-color: #fcf8fb ; */
-  /* background-color: whitesmoke; */
-  /* background-color: #eaf6f3 ; */
-  background-color: #fcfffa ;
-  /* background-color: #ffffff; */
+  background-color:  #f9f9f9 ;
   font-size: 14px;
 }
 
