@@ -2,22 +2,23 @@ import React, { useEffect, useMemo, useState } from "react";
 import countryList from "react-select-country-list";
 import Select from "react-select";
 import { getPhoneNumbers } from "../../phoneData/db";
-const Step3 = () => {
+
+const Step3 = ({setValue }) => {
   const [picked, setPicked] = useState("");
   const [location, setLocation] = useState("");
   const options = useMemo(() => countryList().getData(), []);
   const [phones, setPhones] = useState([]);
 
   useEffect(() => {
-    // console.log(location)
     let numbers = getPhoneNumbers(location.label);
-    console.log("test", numbers);
     setPhones(numbers);
     return;
   }, [location]);
 
   const changeHandler = (value) => {
     setLocation(value);
+    setValue('subscriptions.0.location',  value )
+    setValue('subscriptions.0.phonenumber',  undefined )
   };
 
   return (
@@ -28,6 +29,7 @@ const Step3 = () => {
         options={options}
         value={location}
         onChange={changeHandler}
+
       />
 
       <div className="flex flex-col gap-2 py-4">
@@ -37,6 +39,7 @@ const Step3 = () => {
               key={index}
               onClick={() => {
                 setPicked(x);
+                setValue('subscriptions.0.phonenumber',  x )
               }}
               className="hover:bg-blue-300 cursor-pointer border py-4 px-2 rounded-md  flex gap-2 items-center justify-between"
             >

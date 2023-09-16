@@ -12,7 +12,7 @@ function Footer() {
   return (
     <footer className='mt-8 p-4 bg-[#000435] text-gray-50 flex gap-4 justify-between mb-8 rounded-md'>
     <div className=' flex-1 flex flex-col gap-4 items-center  justify-center '>
-        <Logo color= {'gray-50'} />
+        <Logo color= {'white'} />
         <div className='flex gap-2 px-2 ml-4 rounded-md w-fit '>
             <AiFillTwitterCircle size={26}  color='#1DA1F2' className='hover:cursor-pointer '/>
             <AiFillInstagram size={26}  color='#C13584' className='hover:cursor-pointer '/>

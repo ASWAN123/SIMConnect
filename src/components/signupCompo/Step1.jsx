@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Step1 = () => {
+const Step1 = ({ register ,  errors , getValues }) => {
+
   return(
     <section className="mt-8 w-[40%] mx-auto flex flex-col gap-2 ">
       <div className="w-full flex  gap-4 items-center justify-center">
@@ -14,8 +15,13 @@ const Step1 = () => {
           </label>
           <input
             type="text"
-            className="text-[14px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300  placeholder:text-gray-600 placeholder:text-[14px] "
-          />
+            name='first_name'
+            placeholder={ errors.first_name && errors.first_name.message }
+            {...register('first_name' , {required:{ value:true ,  message:'Please type your first name'}})}
+            
+            className=" placeholder:text-red-400 placeholder:text-[12px] text-[14px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
+            />
+            
         </div>
         <div className="w-full flex flex-col gap-2">
           <label
@@ -26,7 +32,11 @@ const Step1 = () => {
           </label>
           <input
             type="text"
-            className="px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300  placeholder:text-gray-600 placeholder:text-[14px] "
+            name='last_name'
+            placeholder={ errors.last_name && errors.last_name.message }
+            {...register('last_name' ,{required:{ value:true ,  message:'Please type your last name'}})}
+            className="placeholder:text-red-400 placeholder:text-[12px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
+          
           />
         </div>
       </div>
@@ -35,7 +45,10 @@ const Step1 = () => {
       </label>
       <input
         type="text"
-        className="px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300  placeholder:text-gray-600 placeholder:text-[14px] "
+        name='email'
+        placeholder={ errors.email && errors.email.message }
+        {...register('email' ,{required:{ value:true ,  message:'Please type your email'}})}
+        className="placeholder:text-red-400 placeholder:text-[12px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
       />
       <label htmlFor="First_name" className="text-gray-600 text-[14px]">
         {" "}
@@ -43,7 +56,10 @@ const Step1 = () => {
       </label>
       <input
         type="text"
-        className="px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300  placeholder:text-gray-600 placeholder:text-[14px] "
+        name='password'
+        placeholder={ errors.password && errors.password.message }
+        {...register('password' , {required:{ value:true ,  message:'Please type your password'}})}
+        className="placeholder:text-red-400 placeholder:text-[12px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
       />
     </section>
   )

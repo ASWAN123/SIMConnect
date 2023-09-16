@@ -1,11 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { v4 as uuid } from 'uuid';
 
-const Step2 = () => {
-    const [subscription, setSubscription] = useState(3);
+const Step2 = ({ setValue='' }) => {
+    const unique_id = uuid();
+    const small_id = unique_id.slice(0,10)
+    const [subscription, setSubscription] = useState(0);
+    
+    useEffect(() => {
+      if(setValue){
+        setValue('subscriptions' , [ { 'id' : small_id , 'date' : new Date() , 'status':'Processing' ,  'name':'Basic' , 'price':5 } ])
+      }
+    } , [] )
+
+    const  pickupanumber = (x ,  y , w) => {
+      setSubscription(x);
+      if(setValue){
+      setValue('subscriptions.0.name',  y )
+      setValue('subscriptions.0.price',  w )
+      }
+    }
+
     const plans = [
       {
         name: "Basic",
-        price: "0",
+        price: "5",
         data: "2GB",
         minutes: "100",
         sms: "50",
@@ -164,10 +182,10 @@ const Step2 = () => {
                 <p className="text-gray-600 ">/ a month</p>
               </div>
               <input
-                onClick={() => {
-                  setSubscription(index);
-                }}
+                onClick={() => {pickupanumber( index , x.name ,  x.price)}}
                 type="button"
+                name='subscription'
+                // {...register('subscription')}
                 value="Select"
                 className={
                   index === subscription

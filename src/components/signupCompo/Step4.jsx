@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Step4 = () => {
+const Step4 = ({setValue}) => {
   return (
     <section className="mt-8 w-[40%] mx-auto flex flex-col gap-2 ">
+      <p className='text-gray-500 text-center mb-2'>Testing purposes only and no money will be collected</p>
       <div className="w-full flex flex-col gap-2 ">
         <button
           type="button"
+          onClick={()=> {setValue('subscriptions.0.payment' , 'PayPal')}}
           class="text-gray-900 bg-[#F7BE38] hover:bg-[#F7BE38]/90 focus:ring-4 focus:outline-none focus:ring-[#F7BE38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#F7BE38]/50 mr-2 mb-2"
         >
           <svg
@@ -27,6 +29,7 @@ const Step4 = () => {
         </button>
         <button
           type="button"
+          onClick={()=> {setValue('subscriptions.0.payment' , 'Apple Pay')}}
           class="text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
         >
           Check out with Apple Pay
@@ -48,6 +51,7 @@ const Step4 = () => {
         </button>
         <button
           type="button"
+          onClick={()=> {setValue('subscriptions.0.payment' , 'American Express')}}
           class="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 mr-2 mb-2"
         >
           <svg
@@ -66,6 +70,7 @@ const Step4 = () => {
         </button>
         <button
           type="button"
+          onClick={()=> {setValue('subscriptions.0.payment' , 'MasterCard')}}
           class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2"
         >
           <svg

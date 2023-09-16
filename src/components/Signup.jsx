@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useForm, SubmitHandler } from "react-hook-form";
+
 import { useContextData } from "../ContextData";
 import countryList from "react-select-country-list";
 // import Select from "react-select";
@@ -17,50 +17,55 @@ import Tofollow from "./signupCompo/Tofollow";
 
 function Signup() {
   const { db, auth } = useContextData();
-  // const { register, handleSubmit } = useForm();
+  const {
+    watch,
+    register,
+    setValue,
+    getValues,
+    formState: { errors, isValid },
+  } = useForm({ mode: "all" });
 
   const [formstep, setFormstep] = useState(1);
 
   const nextFormstep = () => {
-      setFormstep((cur) => cur + 1);
-    };
-    const prevFormstep = () => {
-      setFormstep((cur) => cur - 1);
-    };
-  
-
+    setFormstep((cur) => cur + 1);
+  };
+  const prevFormstep = () => {
+    setFormstep((cur) => cur - 1);
+  };
 
   return (
     <div className="mt-8 w-[90%]  items-center flex flex-col gap-2 mx-auto mb-[100px]">
-
-      <Tofollow formstep = {formstep} setFormstep ={setFormstep}    />
+      <Tofollow formstep={formstep} setFormstep={setFormstep} />
 
       <form action="" className=" w-full flex flex-col gap-2 justify-between ">
         {/* peronal  information */}
 
-        {formstep === 1 && <Step1 />}
+        {formstep === 1 && (
+          <Step1 register={register} errors={errors} getValues={getValues} />
+        )}
 
         {/* select subscription */}
 
-        {formstep === 2 && <Step2 />}
+        {formstep === 2 && <Step2 setValue={setValue} />}
 
         {/* pick up a  phone number */}
-        {formstep === 3 && <Step3 />}
+        {formstep === 3 && <Step3 setValue={setValue} />}
 
         {/* checkout */}
-        {formstep === 4 && <Step4 />}
+        {formstep === 4 && <Step4 setValue={setValue} />}
 
         {/* congratulation */}
-        {formstep === 5 && <Step5 />}
+        {formstep === 5 && <Step5 watch={watch} />}
 
         {/* buttons */}
         <div className="w-full  flex gap-4 items-center justify-end mt-6 p-2 fixed z-30 bottom-4  right-8 ">
-          {formstep >= 2 && formstep <= 5 && (
+          {formstep >= 2 && formstep <= 4 && (
             <input
               type="button"
               value="Back"
               onClick={prevFormstep}
-              className="   rounded-md  px-6 py-2 text-[16px] text-black cursor-pointer "
+              className=" bg-blue-400  rounded-md  px-6 py-2 text-[16px] text-black cursor-pointer "
             />
           )}
 
@@ -68,20 +73,27 @@ function Signup() {
             <input
               type="button"
               value="Next"
+              disabled={
+                !isValid ||
+                (formstep === 3 &&
+                  getValues("subscriptions.0.phonenumber") === undefined)
+                  ? true
+                  : false ||
+                    (formstep === 4 &&
+                      getValues("subscriptions.0.payment") === undefined)
+                  ? true
+                  : false
+              }
+              pattern="[a-zA-Z0-9]*"
+              // { formstep === 1 && disabled = getValues('subscriptions.0.phonenumber') === undefined ) ? true : false }
+              // disabled = { (formstep === 3 && getValues('subscriptions.0.phonenumber') === undefined ) ? true : false }
               onClick={nextFormstep}
-              className="   rounded-md  px-6 py-2 text-[16px] text-black cursor-pointer "
-            />
-          )}
-
-          {formstep === 5 && (
-            <input
-              type="button"
-              value="Confirm"
-              className="rounded-md  px-6 py-2 text-[16px] text-black cursor-pointer "
+              className="  bg-[#000435] disabled:bg-gray-300 disabled:text-gray-400  disabled:cursor-not-allowed   rounded-md  px-6 py-2 text-[16px] text-white cursor-pointer "
             />
           )}
         </div>
       </form>
+      <div>{JSON.stringify(watch(), null, 2)}</div>
     </div>
   );
 }
