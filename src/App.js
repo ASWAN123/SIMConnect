@@ -34,8 +34,8 @@ function App() {
           <Route exact path="/account" element={<Dashbaord />}>
             <Route index element={<Maindash />} />
             <Route exact path="orders" element={ <Orders />  } />
-            {/* <Route exact path="sim-card-management" element={ <Simcardmanagement />  } />
-            <Route exact path="billing-history" element={ <Billinghistory />  } />
+            <Route exact path="sim-card-management" element={ <Simcardmanagement />  } />
+            {/* <Route exact path="billing-history" element={ <Billinghistory />  } />
             <Route exact path="network-coverage-map" element={ <Networkmap />  } />
             <Route exact path="devices" element={ <Devices />  } />
             <Route exact path="refer-a-friend" element={ <Referafriend />  } /> */}

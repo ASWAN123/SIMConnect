@@ -16,19 +16,33 @@ import Step1 from "./signupCompo/Step1";
 import Tofollow from "./signupCompo/Tofollow";
 
 function Signup() {
-  const { db, auth } = useContextData();
+  const { db , auth } = useContextData();
   const {
     watch,
     register,
     setValue,
     getValues,
+    trigger,
+    setError,
     formState: { errors, isValid },
-  } = useForm({ mode: "all" });
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+    criteriaMode: "all",
+  });
+
+  // useEffect(() => {
+  //   console.log(JSON.stringify(watch() ,  null ,  2))
+  // } ,  [watch()])
 
   const [formstep, setFormstep] = useState(1);
 
-  const nextFormstep = () => {
-    setFormstep((cur) => cur + 1);
+  const nextFormstep = async () => {
+    const data = await trigger();
+    console.log(data);
+    if (data) {
+      setFormstep((cur) => cur + 1);
+    }
   };
   const prevFormstep = () => {
     setFormstep((cur) => cur - 1);
@@ -42,11 +56,15 @@ function Signup() {
         {/* peronal  information */}
 
         {formstep === 1 && (
-          <Step1 register={register} errors={errors} getValues={getValues} />
+          <Step1
+            register={register}
+            errors={errors}
+            trigger={trigger}
+            getValues={getValues}
+          />
         )}
 
         {/* select subscription */}
-
         {formstep === 2 && <Step2 setValue={setValue} />}
 
         {/* pick up a  phone number */}
@@ -75,25 +93,21 @@ function Signup() {
               value="Next"
               disabled={
                 !isValid ||
-                (formstep === 3 &&
-                  getValues("subscriptions.0.phonenumber") === undefined)
+                (formstep === 3 && ( getValues("subscriptions.0.phonenumber") === '' || getValues("subscriptions.0.location") === undefined  ))
                   ? true
                   : false ||
                     (formstep === 4 &&
-                      getValues("subscriptions.0.payment") === undefined)
+                      getValues("subscriptions.0.payment") === undefined )
                   ? true
                   : false
               }
-              pattern="[a-zA-Z0-9]*"
-              // { formstep === 1 && disabled = getValues('subscriptions.0.phonenumber') === undefined ) ? true : false }
-              // disabled = { (formstep === 3 && getValues('subscriptions.0.phonenumber') === undefined ) ? true : false }
               onClick={nextFormstep}
               className="  bg-[#000435] disabled:bg-gray-300 disabled:text-gray-400  disabled:cursor-not-allowed   rounded-md  px-6 py-2 text-[16px] text-white cursor-pointer "
             />
           )}
         </div>
       </form>
-      <div>{JSON.stringify(watch(), null, 2)}</div>
+      {/* <div>{JSON.stringify(watch(), null, 2)}</div> */}
     </div>
   );
 }

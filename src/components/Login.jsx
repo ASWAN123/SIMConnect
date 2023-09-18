@@ -1,11 +1,28 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {BiShow} from 'react-icons/bi'
+import { useForm, SubmitHandler } from "react-hook-form";
+import {  signInWithEmailAndPassword } from "firebase/auth";
+import { useContextData } from '../ContextData';
 
 function Login() {
-    const [ email , setEmail]  = useState('')
-    const [password , setPassword] = useState('')
-    const [ showPassword , setShowPassword ] = useState(false)
+
+    const  { db , auth } = useContextData() ;
+    const [ email , setEmail]  = useState('') ;
+    const [password , setPassword] = useState('') ;
+    const [ showPassword , setShowPassword ] = useState(false) ;
+    const {
+        watch,
+        register,
+        setValue,
+        getValues,
+        formState: { errors, isValid },
+      } = useForm({ mode: "all" });
+      
+    
+
+
+    
 
 
 
@@ -15,10 +32,9 @@ function Login() {
             <form action="" className=' flex flex-col gap-2'>
                 <p className='text-center text-[20px] mb-4 text-black'>Log Into Your Account</p>
                 
-                <input placeholder='Email' className=' w-full placeholder:text-[14] placeholder:text-gray-400 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm' value={email} onChange={(e) => {setEmail(e.target.value)}} type="Email" name="email" id="email" />
+                <input name="email" placeholder='Email' className=' w-full placeholder:text-[14] placeholder:text-gray-400 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm' value={email} onChange={(e) => {setEmail(e.target.value)}} type="Email" name="email" id="email" />
+                <input name='password' placeholder='Password' className=' w-full placeholder:text-[14] placeholder:text-gray-400 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type={ showPassword ? "Word" : "Password" } name="password" id="password" />
                 
-
-                <input placeholder='Password' className=' w-full placeholder:text-[14] placeholder:text-gray-400 outline-none bg-transparent px-2 py-1 h-10 border rounded-sm' value={password} onChange = { (e) => {setPassword(e.target.value)} } type={ showPassword ? "Word" : "Password" } name="password" id="password" />
                 <p onClick={()=> {setShowPassword(!showPassword)}} className=' hover:cursor-pointer text-gray-500 text-[12px] ml-1 mr-auto flex gap-1 items-center'><BiShow /> Show password</p>
                 <input className='hover:bg-[#000435]/40 bg-[#000435] text-white px-6 py-2 rounded-sm mt-2 hover:cursor-pointer ' type="submit" value="Log in"/>
             </form>

@@ -27,8 +27,8 @@ const Dashheader = () => {
             to={link.to}
             className={
               path === link.to
-                ? "text-orange-500 cursor-pointer"
-                : "cursor-pointer hover:text-orange-500"
+                ? "text-blue-500 cursor-pointer"
+                : "cursor-pointer hover:text-blue-500"
             }
           >
             {link.text}

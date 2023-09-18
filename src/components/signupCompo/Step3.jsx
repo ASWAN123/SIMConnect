@@ -9,17 +9,33 @@ const Step3 = ({setValue }) => {
   const options = useMemo(() => countryList().getData(), []);
   const [phones, setPhones] = useState([]);
 
+
+
+
+
+
   useEffect(() => {
     let numbers = getPhoneNumbers(location.label);
     setPhones(numbers);
     return;
   }, [location]);
 
+
+
+
   const changeHandler = (value) => {
     setLocation(value);
     setValue('subscriptions.0.location',  value )
-    setValue('subscriptions.0.phonenumber',  undefined )
+    setValue('subscriptions.0.phonenumber',  '' )
   };
+
+
+
+
+
+
+
+
 
   return (
     <section className="mt-8 w-[40%] mx-auto flex flex-col gap-2 ">
