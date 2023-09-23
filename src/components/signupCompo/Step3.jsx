@@ -3,7 +3,7 @@ import countryList from "react-select-country-list";
 import Select from "react-select";
 import { getPhoneNumbers } from "../../phoneData/db";
 
-const Step3 = ({setValue }) => {
+const Step3 = ({setValue , setValidephone }) => {
   const [picked, setPicked] = useState("");
   const [location, setLocation] = useState("");
   const options = useMemo(() => countryList().getData(), []);
@@ -27,6 +27,7 @@ const Step3 = ({setValue }) => {
     setLocation(value);
     setValue('subscriptions.0.location',  value )
     setValue('subscriptions.0.phonenumber',  '' )
+    setValidephone(false)
   };
 
 
@@ -56,6 +57,7 @@ const Step3 = ({setValue }) => {
               onClick={() => {
                 setPicked(x);
                 setValue('subscriptions.0.phonenumber',  x )
+                setValidephone(true)
               }}
               className="hover:bg-blue-300 cursor-pointer border py-4 px-2 rounded-md  flex gap-2 items-center justify-between"
             >

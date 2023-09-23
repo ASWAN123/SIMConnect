@@ -191,4 +191,7 @@ main
 
 pay attensionn #000080 add some  validation for the  white space  in form hook
 //////////////////////////////////////////////////////////////////////////////////
-try  for free  button and  select  button in pricing  plan ???? what  you gonna do about  them
+SIM Card Management  page
+address ,  zipcode , and  the  stuffs
+
+

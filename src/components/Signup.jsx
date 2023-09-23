@@ -36,6 +36,9 @@ function Signup() {
   // } ,  [watch()])
 
   const [formstep, setFormstep] = useState(1);
+  //  thats  because  the  watch() object  dosn't recognize  the  changes  so  the  the  compoennet  to  rerender after the  change  happend
+  const [ validphone  ,  setValidephone]  = useState(false)
+  const [ validpaymet  ,  setValidpaymet]  = useState(false)
 
   const nextFormstep = async () => {
     const data = await trigger();
@@ -68,10 +71,10 @@ function Signup() {
         {formstep === 2 && <Step2 setValue={setValue} />}
 
         {/* pick up a  phone number */}
-        {formstep === 3 && <Step3 setValue={setValue} />}
+        {formstep === 3 && <Step3 setValue={setValue} setValidephone={setValidephone} />}
 
         {/* checkout */}
-        {formstep === 4 && <Step4 setValue={setValue} />}
+        {formstep === 4 && <Step4 setValue={setValue} setValidpaymet={setValidpaymet} getValues={getValues} />}
 
         {/* congratulation */}
         {formstep === 5 && <Step5 watch={watch} />}
@@ -93,7 +96,7 @@ function Signup() {
               value="Next"
               disabled={
                 !isValid ||
-                (formstep === 3 && ( getValues("subscriptions.0.phonenumber") === '' || getValues("subscriptions.0.location") === undefined  ))
+                (formstep === 3 && ( !validphone || getValues("subscriptions.0.location") === undefined ))
                   ? true
                   : false ||
                     (formstep === 4 &&
