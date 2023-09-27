@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 //bg-[#f9f9f9]
 const Header = () => {
   return (
-    <header className="  bg-[#f9f9f9] px-4 text-gray-600 min-h-[80px]  max-h-[80px] py-2 flex gap-4 items-center justify-between  text-[14px] sticky top-0 w-full z-10  ">
+    <header className=" container mx-auto bg-[#f9f9f9] px-4 text-gray-600 min-h-[80px]  max-h-[80px] py-2 flex gap-4 items-center justify-between  text-[14px] sticky top-0 w-full z-10  ">
     <Logo  color={'black'}/>
     <ul className="flex gap-4   ">
         <li className="hover:cursor-pointer hover:text-blue-400">Discover</li>

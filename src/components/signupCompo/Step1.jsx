@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import  { AiOutlineEye  ,  AiOutlineEyeInvisible } from 'react-icons/ai'
 
-const Step1 = ({ register, errors, getValues, trigger }) => {
+const Step1 = ({ register, errors }) => {
+
+  const [ showpassword  , setShowpassword] = useState(false)
+
+
+
+
   return (
     <section className="mt-8 w-[40%] mx-auto flex flex-col gap-2 ">
       <div className="w-full flex  gap-4 items-center justify-center">
@@ -41,46 +48,75 @@ const Step1 = ({ register, errors, getValues, trigger }) => {
         Email
       </label>
       <input
-        type="text"
         name="email"
         {...register("email", {
           required: "Email is required",
-          validate: (value) => value.trim() !== "" || "Email cannot be empty",
+          validate: {
+            maxLength: (v) =>
+              v.length <= 50 || "The email should have at most 50 characters",
+            matchPattern: (v) =>
+              /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+              "Email address must be a valid address",
+          },
         })}
         className="placeholder:text-red-400 placeholder:text-[12px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
       />
 
-      <label htmlFor="First_name" className="text-gray-600 text-[14px]">
+      <label htmlFor="First_name" className="text-gray-600 text-[14px] flex items-center gap-4  justify-between pr-2 ">
         Password
+        <span>
+        {
+         !showpassword && <AiOutlineEye color="lightgray" size={18}   onClick={() => {setShowpassword(!showpassword)}} />
+        }
+        {
+         showpassword && <AiOutlineEyeInvisible color="lightgray" size={18}  onClick={() => {setShowpassword(!showpassword)}}/>
+        }
+      </span>
       </label>
       <input
-        type="text"
         name="password"
-        {...register("password", {
-          required: "Password is required",
-          validate: (value) =>
-            value.trim() !== "" || "Password cannot be empty",
-        })}
+        {
+          ...register("password", {
+            required: "Password is required",
+            validate: {
+              minLength: (v) =>
+                v.trim().length >= 8 || "Password should be at least 8 characters long",
+              containsUppercase: (v) =>
+                /[A-Z]/.test(v) || "Password should contain at least one uppercase letter",
+              containsLowercase: (v) =>
+                /[a-z]/.test(v) || "Password should contain at least one lowercase letter",
+              containsNumber: (v) =>
+                /\d/.test(v) || "Password should contain at least one number",
+            },
+          })
+        }
+        type= { showpassword ? "text" : "password" }
+      
         className="placeholder:text-red-400 placeholder:text-[12px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
       />
+
       <div className=" flex gap-4 w-full ">
         <div className="flex flex-col gap-2 w-full">
-          <label htmlFor="First_name" className="text-gray-600 text-[14px]">
+          <label htmlFor="Address" className="text-gray-600 text-[14px]">
             Address
           </label>
           <input
-            type="text"
-            name="Address"
-            {...register("Address", {
-              required: "Address is required",
-              validate: (value) =>
-                value.trim() !== "" || "Address cannot be empty",
-            })}
+            
+            name="address"
+            {
+              ...register("address", {
+                required: "Address is required",
+                validate: {
+                  minLength: (v) =>
+                    v.length >= 5 || "Address should be at least 5 characters long",
+                },
+              })
+            }
             className="placeholder:text-red-400 placeholder:text-[12px] px-2 py-1 w-full outline-none h-10 rounded-md bg-transparent border border-gray-300   "
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="First_name" className="text-gray-600 text-[14px]">
+          <label htmlFor="Zipcode" className="text-gray-600 text-[14px]">
             Zipcode
           </label>
           <input
@@ -88,6 +124,10 @@ const Step1 = ({ register, errors, getValues, trigger }) => {
             name="Zipcode"
             {...register("Zipcode", {
               required: "Zipcode is required",
+              pattern: {
+                value: /^\d{5}(-\d{4})?$/,
+                message: "Zip code must be in the format XXXXX or XXXXX-XXXX",
+              },
               validate: (value) =>
                 value.trim() !== "" || "Zipcode cannot be empty" ,
             })}
@@ -100,7 +140,7 @@ const Step1 = ({ register, errors, getValues, trigger }) => {
         {errors.last_name && <p>* {errors.last_name.message}</p>}
         {errors.email && <p>* {errors.email.message}</p>}
         {errors.password && <p>* {errors.password.message}</p>}
-        {errors.Address && <p>* {errors.Address.message}</p>}
+        {errors.address && <p>* {errors.address.message}</p>}
         {errors.Zipcode && <p>* {errors.Zipcode.message}</p>}
       </div>
     </section>

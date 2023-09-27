@@ -1,9 +1,10 @@
+import { useContext, useEffect, useState } from "react";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/LandingFolder/Header"
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import { Contextprovider } from "./ContextData";
+import { Contextprovider, useContextData } from "./ContextData";
 import Dashbaord from "./components/userspace/Dashbaord";
 import Maindash from "./components/userspace/Dash_main";
 import Orders from "./components/userspace/Orders";
@@ -14,18 +15,42 @@ import Devices from "./components/userspace/Devices";
 import Referafriend from "./components/userspace/Referafriend";
 import Orderdetails from "./components/userspace/Orderdetails";
 import { getPhoneNumbers } from "./phoneData/db";
+import { DotWave } from '@uiball/loaders'
+import { auth } from './firebaseconfig'
+import {  onAuthStateChanged } from "firebase/auth";
 
 function App() {
-
+  // const [Loading , setLoading] = useState(true);
   let location = useLocation()
   let path  = location.pathname
+  let navigate = useNavigate()
+
+
+
+  // useEffect(() => {
+  //   console.log(auth)
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       const uid = user.uid;
+  //       console.log(uid)
+  //       setLoading(false)
+  //       navigate('/account')
+        
+  //     } else {
+  //       console.log('log out')
+  //       setLoading(false)
+        
+  //     }
+  //   });
+  // }, []);
 
 
 
 
   return (
-    <Contextprovider >
-      <div className="App mx-auto px-4 relative ">
+    <>
+     <Contextprovider >
+      <div className="App mx-auto px-4  relative ">
         { !path.includes('account') && <Header /> }
         <Routes>
           <Route exact path="/" element={<LandingPage />}></Route>
@@ -33,17 +58,20 @@ function App() {
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/account" element={<Dashbaord />}>
             <Route index element={<Maindash />} />
-            <Route exact path="orders" element={ <Orders />  } />
-            <Route exact path="sim-card-management" element={ <Simcardmanagement />  } />
-            {/* <Route exact path="billing-history" element={ <Billinghistory />  } />
-            <Route exact path="network-coverage-map" element={ <Networkmap />  } />
-            <Route exact path="devices" element={ <Devices />  } />
-            <Route exact path="refer-a-friend" element={ <Referafriend />  } /> */}
-            
+            {/* <Route exact path="orders" element={ <Orders />  } />
+            <Route exact path="sim-card-management" element={ <Simcardmanagement />  } /> */}
           </Route>
         </Routes>
       </div>
-    </Contextprovider>
+    </Contextprovider> 
+      { /* { Loading &&     <div className="absolute  w-full h-screen z-11 top-0 bg-blue-950/80 flex justify-center items-center ">
+        <DotWave
+        size={47}
+        speed={1}
+        color="white"
+        />
+</div> } */}
+</>
 
 
 

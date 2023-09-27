@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SimCards from './Sim_Cards'
 import Accountsummary from './Accountsummary'
 import Todayusage from './Today_usage'
+import { useOutletContext } from 'react-router-dom'
+import { useContextData } from '../../ContextData'
+
+
 
 const Maindash = () => {
+    const [ userData ] = useOutletContext()
+
+
+
 
     return (
         <>
-            <div className='mt-8'>
-                <p className='text-[20px] '>Welcome , <span className='text-blue-500 '>Abderrahim !</span></p>
+
+             <div className='mt-8'>
+                <p className='text-[20px] capitalize '>Welcome , <span className=''>{userData.first_name} !</span></p>
             </div>
 
-            <SimCards />
+            <SimCards  userData = {userData} />
 
-            <Accountsummary />
+            <Accountsummary  userData = {userData} />
             
-            <Todayusage />
+            <Todayusage /> 
+
         </>
     )
 }

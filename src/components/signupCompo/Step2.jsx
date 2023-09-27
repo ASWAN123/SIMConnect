@@ -8,7 +8,7 @@ const Step2 = ({ setValue='' }) => {
     
     useEffect(() => {
       if(setValue){
-        setValue('subscriptions' , [ { 'id' : small_id , 'date' : new Date() , 'status':'Processing' ,  'name':'Basic' , 'price':5 } ])
+        setValue('subscriptions' , [ { 'id' : small_id , 'date' : new Date() , 'deliverystatus':'Processing'  ,  'name':'Basic' , 'price':5 } ])
       }
     } , [] )
 
@@ -17,6 +17,7 @@ const Step2 = ({ setValue='' }) => {
       if(setValue){
       setValue('subscriptions.0.name',  y )
       setValue('subscriptions.0.price',  w )
+      setValue('subscriptions.0.simStatus',  'Active' )
       }
     }
 
@@ -71,17 +72,17 @@ const Step2 = ({ setValue='' }) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class={
+                    className={
                       x.name === "Pro"
                         ? "w-6 h-6  text-orange-400"
                         : "w-6 h-6  text-green-500"
                     }
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M4.5 12.75l6 6 9-13.5"
                     />
                   </svg>
@@ -94,17 +95,17 @@ const Step2 = ({ setValue='' }) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class={
+                    className={
                       x.name === "Pro"
                         ? "w-6 h-6  text-orange-400"
                         : "w-6 h-6  text-blue-400"
                     }
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>{" "}
@@ -115,17 +116,17 @@ const Step2 = ({ setValue='' }) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class={
+                    className={
                       x.name === "Pro"
                         ? "w-6 h-6  text-orange-400"
                         : "w-6 h-6  text-blue-400"
                     }
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
@@ -136,17 +137,17 @@ const Step2 = ({ setValue='' }) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class={
+                    className={
                       x.name === "Pro"
                         ? "w-6 h-6  text-orange-400"
                         : "w-6 h-6  text-blue-400"
                     }
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>{" "}
@@ -157,17 +158,17 @@ const Step2 = ({ setValue='' }) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class={
+                    className={
                       x.name === "Pro"
                         ? "w-6 h-6  text-orange-400"
                         : "w-6 h-6  text-blue-400"
                     }
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>

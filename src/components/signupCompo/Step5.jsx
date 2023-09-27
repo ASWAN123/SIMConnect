@@ -61,7 +61,7 @@ const Step5 = ({ watch }) => {
             <Link to='/account' className="px-8 py-2 cursor-pointer bg-green-500 text-white text-center rounded-md text-[16px]">
               Continue
             </Link>
-          </div>{" "}
+          </div>
         </>
       )}
     </section>

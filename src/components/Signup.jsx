@@ -31,9 +31,7 @@ function Signup() {
     criteriaMode: "all",
   });
 
-  // useEffect(() => {
-  //   console.log(JSON.stringify(watch() ,  null ,  2))
-  // } ,  [watch()])
+
 
   const [formstep, setFormstep] = useState(1);
   //  thats  because  the  watch() object  dosn't recognize  the  changes  so  the  the  compoennet  to  rerender after the  change  happend

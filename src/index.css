@@ -31,8 +31,14 @@ html {
 }
 
 
-.react-select div{
+.react-select div {
   background-color: transparent;
 }
+
+#react-select-2-listbox div {
+  background-color: #f9f9f9;
+  color: black;
+}
+
 
 

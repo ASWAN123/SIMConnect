@@ -76,7 +76,7 @@ const Todayusage = () => {
       });
       setData(newData);
       setHighlighted(true);
-      console.log("changed hightlight", highlighted);
+      // console.log("changed hightlight", highlighted);
     };
 
     const interval0 = setInterval(updateData, 2000);
