@@ -17,7 +17,7 @@ const Maindash = () => {
         <>
 
              <div className='mt-8'>
-                <p className='text-[20px] capitalize '>Welcome , <span className=''>{userData.first_name} !</span></p>
+                <p className='text-[20px] capitalize '>Hey there , <span className=''>{userData.first_name}!</span></p>
             </div>
 
             <SimCards  userData = {userData} />

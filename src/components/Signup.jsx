@@ -62,6 +62,8 @@ function Signup() {
             errors={errors}
             trigger={trigger}
             getValues={getValues}
+            setValue={setValue}
+            
           />
         )}
 
@@ -94,7 +96,7 @@ function Signup() {
               value="Next"
               disabled={
                 !isValid ||
-                (formstep === 3 && ( !validphone || getValues("subscriptions.0.location") === undefined ))
+                (formstep === 3 &&  ( !validphone || getValues("subscriptions.0.location") === undefined ))
                   ? true
                   : false ||
                     (formstep === 4 &&
@@ -108,7 +110,7 @@ function Signup() {
           )}
         </div>
       </form>
-      {/* <div>{JSON.stringify(watch(), null, 2)}</div> */}
+      <div>{JSON.stringify(watch(), null, 2)}</div>
     </div>
   );
 }

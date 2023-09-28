@@ -33,11 +33,10 @@ function Login() {
       // Signed in 
       const user = userCredential.user;
       navigate('/account')
-      // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      const errorCode = error.code ;
+      const errorMessage = error.message ;
     //   setError(errorMessage)
     });
   }

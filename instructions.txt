@@ -10,4 +10,11 @@
 
 6# Sim card management
 
-7# 
+
+
+
+
+
+think again
+
+name  ,  email , password , address , 

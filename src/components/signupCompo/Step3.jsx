@@ -4,7 +4,7 @@ import Select from "react-select";
 import { getPhoneNumbers } from "../../phoneData/db";
 
 const Step3 = ({setValue , setValidephone }) => {
-  const [picked, setPicked] = useState("");
+  const [picked, setPicked] = useState(""); 
   const [location, setLocation] = useState("");
   const options = useMemo(() => countryList().getData(), []);
   const [phones, setPhones] = useState([]);

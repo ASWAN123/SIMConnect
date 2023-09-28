@@ -58,8 +58,8 @@ function App() {
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/account" element={<Dashbaord />}>
             <Route index element={<Maindash />} />
-            {/* <Route exact path="orders" element={ <Orders />  } />
-            <Route exact path="sim-card-management" element={ <Simcardmanagement />  } /> */}
+            <Route exact path="orders" element={ <Orders />  } />
+            {/* <Route exact path="sim-card-management" element={ <Simcardmanagement />  } /> */}
           </Route>
         </Routes>
       </div>

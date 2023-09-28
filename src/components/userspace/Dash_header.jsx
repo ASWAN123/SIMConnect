@@ -9,18 +9,18 @@ const Dashheader = () => {
 
   const linksData = [
     { to: "/account", text: "Dashboard" },
-    // { to: "/account/orders", text: "Orders" },
-    // { to: "/account/sim-card-management", text: "SIM Card Management" },
+    { to: "/account/orders", text: "Orders" },
+    { to: "/account/Setting", text: "Setting" },
     // { to: "/account/billing-history", text: "Billing History" },
     // { to: "/account/network-coverage-map", text: "Network Coverage Map" },
-    // { to: "/account/devices", text: "My Devices" },
-    // { to: "/account/refer-a-friend", text: "Refer-a-Friend" },
+    { to: "/account/profile", text: "Profile" },
+    { to: "/account/refer-a-friend", text: "Refer-a-Friend" },
   ];
 
   return (
-    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#f9f9f9] ">
+    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center  justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#f5f5f5] ">
       <Logo />
-      <div className="flex gap-4  ml-4 text-[14px] text-gray-600 ">
+      <div className=" flex gap-4  ml-8 mr-auto text-[14px] text-gray-600 ">
         {linksData.map((link, index) => (
           <Link
             key={index}
@@ -35,7 +35,7 @@ const Dashheader = () => {
           </Link>
         ))}
       </div>
-      <div className="flex gap-8 items-center ">
+      {/* <div className="flex gap-8 items-center "> */}
 
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ const Dashheader = () => {
           />
         </svg> */}
 
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -65,7 +65,10 @@ const Dashheader = () => {
             strokeLinejoin="round"
             d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
           />
-        </svg>
+        </svg> */}
+      {/* </div> */}
+      <div>
+        <button className="px-6 py-2 bg-green-500 text-white rounded-sm">Contact us</button>
       </div>
     </header>
   );
