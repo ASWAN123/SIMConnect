@@ -18,12 +18,12 @@ const Dashheader = () => {
   ];
 
   return (
-    <header className="min-h-[70px]  flex flex-col gap-4    pt-2 sticky top-0 w-full z-10  bg-[#f9f9f9] ">
+    <header className="min-h-[70px]  flex flex-col gap-4    pt-3 sticky top-0 w-full z-10  bg-[#f9f9f9] ">
       <div className="w-full flex gap-4 justify-between items-center ">
         <Logo />
         <button
           type="button"
-          className="flex items-center justify-center gap-2 text-white bg-blue-500  hover:bg-gradient-to-bl font-medium rounded-md text-sm px-5 py-2 text-center "
+          className="flex items-center justify-center gap-2 text-white bg-blue-500  hover:bg-gradient-to-bl font-medium rounded-sm text-sm px-5 py-1 text-center "
         >
           Live Support{" "}
           <svg
@@ -61,7 +61,7 @@ const Dashheader = () => {
             </Link>
             
           ))}
-          <button className="ml-auto text-red-300  cursor-pointer ">Log Out</button>
+          <button className="ml-auto text-white  cursor-pointer ">Log Out</button>
         </div>
       </div>
     </header>

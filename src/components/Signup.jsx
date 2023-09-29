@@ -14,15 +14,21 @@ import Step3 from "./signupCompo/Step3";
 import Step2 from "./signupCompo/Step2";
 import Step1 from "./signupCompo/Step1";
 import Tofollow from "./signupCompo/Tofollow";
+import { useLocation, useOutlet, useOutletContext } from "react-router-dom";
 
 function Signup() {
-  const { db , auth } = useContextData();
+  const  location = useLocation() ;
+  const  path  = location.pathname ;
+  const  [ userData ] = useOutletContext()
+
+  const { db , auth } = useContextData() ;
   const {
     watch,
     register,
     setValue,
     getValues,
     trigger,
+    
     setError,
     formState: { errors, isValid },
   } = useForm({
@@ -49,6 +55,14 @@ function Signup() {
     setFormstep((cur) => cur - 1);
   };
 
+
+  useEffect(() => {
+    if(path === '/account/neworder'){
+      setFormstep(2)
+      
+    }
+  } ,  [] )
+
   return (
     <div className="mt-8 w-[90%]  items-center flex flex-col gap-2 mx-auto mb-[100px]">
       <Tofollow formstep={formstep} setFormstep={setFormstep} />
@@ -56,7 +70,7 @@ function Signup() {
       <form action="" className=" w-full flex flex-col gap-2 justify-between ">
         {/* peronal  information */}
 
-        {formstep === 1 && (
+         { path !== '/account/neworder' && formstep === 1 && (
           <Step1
             register={register}
             errors={errors}

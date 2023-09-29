@@ -1,9 +1,10 @@
 import React from "react";
 import { MdOutline4GPlusMobiledata } from "react-icons/md";
-import { BiMessageRounded } from "react-icons/bi";
-import { IoCallSharp } from "react-icons/io5";
-import { BsFillPlusSquareFill } from "react-icons/bs";
-import { CiEdit } from "react-icons/ci";
+import { BiMessageRounded } from "react-icons/bi" ;
+import { IoCallSharp } from "react-icons/io5" ;
+import { BsFillPlusSquareFill } from "react-icons/bs" ;
+import { CiEdit } from "react-icons/ci" ;
+import { Link } from "react-router-dom" ;
 
 const SimCards = ({userData}) => {
 
@@ -126,13 +127,13 @@ const SimCards = ({userData}) => {
                 <p>Plan Details:</p>
                 <ul className="flex flex-col gap-1 ">
                   <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <MdOutline4GPlusMobiledata size={18} /> Data: { plans.find(sub => sub.name  === subscription.name ).data }
+                    <MdOutline4GPlusMobiledata size={18} /> Data: { plans.find(sub => sub.name  === subscription.name )?.data }
                   </li>
                   <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <IoCallSharp size={18} /> Minutes: { plans.find(sub => sub.name  === subscription.name ).minutes }
+                    <IoCallSharp size={18} /> Minutes: { plans.find(sub => sub.name  === subscription.name )?.minutes }
                   </li>
                   <li className="text-gray-600 pl-1 flex gap-1 items-center ">
-                    <BiMessageRounded size={18} /> Messages: { plans.find(sub => sub.name  === subscription.name ).sms } messages
+                    <BiMessageRounded size={18} /> Messages: { plans.find(sub => sub.name  === subscription.name )?.sms } messages
                   </li>
                 </ul>
               </div>
@@ -140,15 +141,16 @@ const SimCards = ({userData}) => {
           </div>
           })
         }
-
+ 
       </div>
-
-      { subscriptions.length <= 3 && <BsFillPlusSquareFill
+        
+      { subscriptions.length <= 3 && <Link to = "neworder" ><BsFillPlusSquareFill
         size={42}
         color="white"
-        className="absolute right-4  bottom-4 cursor-pointer  "
-      /> 
+        className="absolute right-4  bottom-4 cursor-pointer "
+      /> </Link>
       }
+      
     </div>
   );
 };

@@ -2,37 +2,61 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useContextData } from "../../ContextData";
-import { Link } from "react-router-dom";
+import { Link, redirect, useLocation, useNavigate, useNavigation, useOutletContext } from "react-router-dom";
+import firebase from 'firebase/compat/app' ;
+
 
 const Step5 = ({ watch }) => {
   const { db , auth } = useContextData();
   let [showCongrats, setShowCongrats] = useState(false);
   let [loading, setLoading] = useState(true);
+  const  location  = useLocation()
+  const  path  = location.pathname
+  const  [ userData] = useOutletContext()
+  let navigate  = useNavigate() ;
 
   useEffect(() => {
-    let data = watch() ;
-    let email = data.email ; 
-    let password = data.password ;
-    const registerNewUser = async (email, password) => {
-      try {
-        const userCredential = await createUserWithEmailAndPassword( auth , email, password);
-        const user = userCredential.user ;
-        console.log('User registered:', user);
-        let  dataclone = {...data }
-        delete dataclone.password
-        await db.collection('simconnect').doc(user.uid).set({...dataclone ,date:new Date().toString() ,  id: user.uid })
-        setLoading(false)
-        setShowCongrats(true)
-        return user;
-      } catch (error) {
-        console.error('Error registering user:', error);
-        throw error;
-      }
-    };
+    if( path !== "/account/neworder"){
+      let data = watch() ;
+      let email = data.email ; 
+      let password = data.password ; 
+      const registerNewUser = async (email, password) => { 
+        try { 
+          const userCredential = await createUserWithEmailAndPassword( auth , email, password);
+          const user = userCredential.user ;
+          console.log('User registered:', user);
+          let  dataclone = {...data }
+          delete dataclone.password
+          let date  = new  Date()
+          await db.collection('simconnect').doc(user.uid).set({...dataclone , date:date.getFullYear() ,  id: user.uid })
+          setLoading(false)
+          setShowCongrats(true)
+          return user;
+        } catch (error) {
+          console.error('Error registering user:', error);
+          throw error;
+        }
+      };
+  
+      registerNewUser(email, password)
+      return
+    }
 
-    registerNewUser(email, password)
+    console.log({...watch() })
+    let data = watch()
+    let newsub = data.subscriptions[0]
+    const addSubscription = async () => {
+      await db.collection('simconnect').doc(userData.id).update({ subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub})})
+      setLoading(false)
+      setShowCongrats(true)
+      
+    }
 
-  }, []);
+    addSubscription()
+
+    
+
+  } , [] );
 
   return (
     <section className="w-[80%] min-h-[300px] mx-auto py-1  relative ">

@@ -9,7 +9,7 @@ const Simcardmanagement = () => {
 
       <div className="flex gap-2">
 
-        <div className="w-full flex flex-col gap-4">
+        <div className="w-full flex flex-col gap-4 p-4 rounded-md  bg-white">
           <Basic_setting />
           <Reset_pin />
         </div>

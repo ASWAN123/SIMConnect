@@ -1,10 +1,13 @@
+
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { useContextData } from "../../ContextData";
+import  {  FcCheckmark } from 'react-icons/fc'
 
 export const Profile = () => {
     const  [ userData ] = useOutletContext()
     const  {data  ,  db } = useContextData()
+    const  [ updatedProfile , setUpdatedProfile ] = useState(false) 
 
     const [info , setInfo] = useState({})
 
@@ -18,17 +21,28 @@ export const Profile = () => {
         setInfo(dataClone)
     } ,  [])
 
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setUpdatedProfile(false);
+          }, 3000);
 
-    const saveChanges = () => {
-        let dataClone = data.map(item => {
-            if  (item.id  === userData.id ){
-                return { ...item ,  first_name:info.first_name , last_name:info.first_name ,  address:info.address , Zipcode:info.Zipcode }
-            }
-            return item
-        })
+          return () => {
+            clearTimeout(timeoutId);
+          };
+
+    } , [updatedProfile] )
 
 
-        db.collection('simconnect').update({...dataClone})
+    const saveChanges = (e) => {
+        e.preventDefault()
+
+        let userClone  = {...userData , first_name:info.first_name , last_name:info.last_name ,  address:info.address , Zipcode:info.Zipcode  }
+
+        console.log(userClone)
+
+        db.collection('simconnect').doc(userData.id).update({...userClone})
+        setUpdatedProfile(true)
+
     }
 
   return (
@@ -40,11 +54,12 @@ export const Profile = () => {
             <img src="/userprofile.png" className="w-[150px]" alt="" />
 
           <p className="text-[16px] font-semibold ">{userData.last_name} {userData.first_name}</p>
-          <p className="text-[16px] font-semibold flex flex-col gap-2 items-center">registered  since <span> August 19, 1975</span></p>
+          <p className="text-[16px] font-semibold flex flex-col gap-2 items-center">Registered since : <span>{userData.date}</span></p>
         </div>
         <div className="w-full  flex flex-col gap-4 pl-4">
-                <h2 className="text-[30px] ">Profile information</h2>
-            <form action="" className=" flex flex-col gap-2  ">
+                <h2 className="text-[30px] flex items-center gap-2 justify-between">Profile information  { updatedProfile && <span className="text-green-400 flex items-center gap-2 text-[12px] "><FcCheckmark size={18} color="green"/> Succesfully updated</span>}</h2>
+                
+            <form onSubmit={saveChanges} action="" className=" flex flex-col gap-2  ">
                 <div className="flex flex-col gap-2 ">
                     <label className="font-semibold " htmlFor="FirstNmae">First name</label>
                     <input onChange={(e) => {setInfo({...info ,  first_name:e.target.value})}} className=" px-2 text-gray-500 bg-transparent border  border-dashed  w-full h-10 text-[16px] outline-none " value={info.first_name} type="text" name="FirstNmae" id="FirstName" />

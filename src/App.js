@@ -9,16 +9,17 @@ import Dashbaord from "./components/userspace/Dashbaord";
 import Maindash from "./components/userspace/Dash_main";
 import Orders from "./components/userspace/Orders";
 import  Simcardmanagement from './components/userspace/Sim_card_management'
-import Billinghistory from './components/userspace/Billing_history'
-import Networkmap from './components/userspace/Networkmap'
-import Devices from "./components/userspace/Devices";
-import Referafriend from "./components/userspace/Referafriend";
-import Orderdetails from "./components/userspace/Orderdetails";
+// import Billinghistory from './components/userspace/Billing_history'
+// import Networkmap from './components/userspace/Networkmap'
+// import Devices from "./components/userspace/Devices";
+// import Referafriend from "./components/userspace/Referafriend";
+// import Orderdetails from "./components/userspace/Orderdetails";
 import { getPhoneNumbers } from "./phoneData/db";
 import { DotWave } from '@uiball/loaders'
 import { auth } from './firebaseconfig'
 import {  onAuthStateChanged } from "firebase/auth";
 import { Profile } from "./components/userspace/Profile";
+import OrderPage from "./components/userspace/OrderPage";
 
 function App() {
   // const [Loading , setLoading] = useState(true);
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="orders" element={ <Orders />  } />
             <Route exact path="Setting" element={ <Simcardmanagement />  } />
             <Route exact path="profile" element={ <Profile />  } />
+            <Route exact path="neworder" element={ <OrderPage />  } />
           </Route>
         </Routes>
       </div>

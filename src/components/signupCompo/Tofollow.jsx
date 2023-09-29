@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
+import { useContextData } from '../../ContextData'
+import { useLocation } from 'react-router-dom'
 
-const Tofollow = ({formstep, setFormstep}) => {
+const Tofollow = ({ formstep, setFormstep }) => {
+  const  location  = useLocation() ;
+  const  path = location.pathname ;
 
     
   return (
     <section className="text-gray-500 py-2 flex  gap-4 text-[14px] items-center w-full justify-between px-8  capitalize">
-    <div className="w-full text-blue-500 flex flex-col items-center gap-2  justify-center text-center">
+    { path  !=="/account/neworder" && <><div className="w-full text-blue-500 flex flex-col items-center gap-2  justify-center text-center">
       <p className="">Personal information</p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +27,7 @@ const Tofollow = ({formstep, setFormstep}) => {
       </svg>
     </div>
 
-    <hr className="w-full" />
+    <hr className="w-full" /> </> }
 
     <div
       className={

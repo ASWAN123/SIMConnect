@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom';
+import  { AiOutlineControl ,  AiOutlineSetting  } from "react-icons/ai" ;
+import  {    MdOutlineConnectedTv  } from "react-icons/md" ;
 
 const Basic_setting = () => {
   const [ userData ] = useOutletContext()
@@ -104,13 +106,13 @@ const Basic_setting = () => {
 
 
   return (
-    <section className=" w-full  rounded-md  p-2">
-    <h3 className='w-full border-b-2 mt-2 mb-3 py-2 text-[20px] font-semibold'>Basic Setting</h3>
+    <section className=" w-full  rounded-sm flex flex-col gap-4 p-2 bg-white ">
+    <h3 className='w-full border-b-2 mt-2 mb-3 py-2 text-[20px] font-semibold flex gap-2 items-center'><AiOutlineSetting size={30} color='blue' /> Basic Setting</h3>
     <div>
 
       {/* <p className="text-[16px] mb-4 font-semibold">Status</p> */}
 
-      <div className="flex gap-4 items-center justify-between bg-white p-4 shadow-md rounded-md">
+      <div className="flex gap-4 items-center justify-between bg-[#f9f9f9] rounded-md  p-4  ">
         {
           networkData.map((w ,  index) => {
             return  <>
@@ -142,11 +144,11 @@ const Basic_setting = () => {
 
       </div>
     </div>
-    <div className="mt-4 w-full flex gap-4  justify-between">
+    <div className="mt-4 w-full flex gap-8  justify-between bg-white ">
       {/* connected  devices */}
       <div className="w-1/2 ">
-        <p className="text-[16px] mb-4 font-semibold">Connect Devices</p>
-        <ul className="flex flex-col gap-2  justify-between bg-white p-2 shadow-md rounded-md ">
+        <p className="text-[16px] mb-4 font-semibold flex  items-center gap-2 border-b-2 py-2"> <MdOutlineConnectedTv size={30} color='blue' />Connect Devices</p>
+        <ul className="flex flex-col gap-2  justify-between  p-2 bg-[#f9f9f9] rounded-md  ">
           {
             deviceData.map((y , index) => {
               return                 <li key={index} className="flex gap-2 items-center justify-between">
@@ -164,9 +166,9 @@ const Basic_setting = () => {
       {/* setting */}
       <div className="  w-1/2  ">
 
-        <p className="text-[16px] mb-4 font-semibold">Quick Settings</p>
+        <p className="text-[16px] mb-4 font-semibold flex items-center gap-2 border-b-2 py-2"> <AiOutlineControl size={30} color="blue" />Quick Settings</p>
 
-        <div className="flex flex-col gap-2 bg-white p-2  shadow-md rounded-md">
+        <div className="flex flex-col gap-2  p-2 bg-[#f9f9f9] rounded-md ">
           {
             settingsData.map((x ,  index ) => {
               return                 <div className="flex gap-2 items-center justify-between">
