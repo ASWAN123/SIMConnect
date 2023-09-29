@@ -111,7 +111,7 @@ const Orders = () => {
               {orders.map((order) => {
                 return (
                   <tr className="" key={order.id}>
-                    <td className="bg-gray-50 last:rounded-r-lg first:rounded-l-lg  py-3 px-1 flex gap-2 items-center">
+                    <td className="bg-white last:rounded-r-lg first:rounded-l-lg  py-3 px-1 flex gap-2 items-center">
                       <img
                         className="w-[30px]"
                         src="/profileimage.png"
@@ -119,19 +119,19 @@ const Orders = () => {
                       />
                       <p>{order.name}</p>
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-lg first:rounded-l-lg py-3 px-1">
+                    <td className="bg-white last:rounded-r-lg first:rounded-l-lg py-3 px-1">
                       {order.id}
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg py-3 px-1">
+                    <td className="bg-white last:rounded-r-md first:rounded-l-lg py-3 px-1">
                       {order.date}
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg py-3 px-1">
+                    <td className="bg-white last:rounded-r-md first:rounded-l-lg py-3 px-1">
                       {order.location}
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg py-3 px-1">
+                    <td className="bg-white last:rounded-r-md first:rounded-l-lg py-3 px-1">
                       {order.address}
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg py-3 px-1">
+                    <td className="bg-white last:rounded-r-md first:rounded-l-lg py-3 px-1">
                       <p
                         className={
                           order.status === "Delivered"
@@ -142,7 +142,7 @@ const Orders = () => {
                         {order.status}
                       </p>
                     </td>
-                    <td className="bg-gray-50 last:rounded-r-md first:rounded-l-lg  py-3 px-1 ">
+                    <td className="bg-white last:rounded-r-md first:rounded-l-lg  py-3 px-1 ">
                       <div onClick={()=> { handleshowDetails( order.id )}} className="cursor-pointer  w-fit mx-auto">
                         <BsFillArrowDownCircleFill
                           size={20}
@@ -168,7 +168,7 @@ const Orders = () => {
                   className={
                     page === p + 1
                       ? "w-8 h-8 flex items-center text-white justify-center  cursor-pointer rounded-full  bg-blue-400 "
-                      : "w-8 h-8 flex items-center justify-center cursor-pointer rounded-full   "
+                      : "w-8 h-8 flex items-center justify-center cursor-pointer rounded-full  border  border-transparent hover:border-blue-400 "
                   }
                 >
                   <p>{p + 1}</p>

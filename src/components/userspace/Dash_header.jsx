@@ -3,6 +3,7 @@ import Logo from "../Logo";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import  {   LiaSimplybuilt  } from 'react-icons/lia'
 const Dashheader = () => {
   const location = useLocation();
   let path = location.pathname;
@@ -11,64 +12,57 @@ const Dashheader = () => {
     { to: "/account", text: "Dashboard" },
     { to: "/account/orders", text: "Orders" },
     { to: "/account/Setting", text: "Setting" },
-    // { to: "/account/billing-history", text: "Billing History" },
-    // { to: "/account/network-coverage-map", text: "Network Coverage Map" },
-    { to: "/account/profile", text: "Profile" },
-    { to: "/account/refer-a-friend", text: "Refer-a-Friend" },
+    { to: "/account/profile", text: "profile" },
+    // { to: "/account/profile", text: "Profile" },
+
   ];
 
   return (
-    <header className="min-h-[70px] max-h-[70px] flex gap-2 items-center  justify-between  border-b py-2 sticky top-0 w-full z-10  bg-[#f5f5f5] ">
-      <Logo />
-      <div className=" flex gap-4  ml-8 mr-auto text-[14px] text-gray-600 ">
-        {linksData.map((link, index) => (
-          <Link
-            key={index}
-            to={link.to}
-            className={
-              path === link.to
-                ? "text-blue-500 cursor-pointer"
-                : "cursor-pointer hover:text-blue-500"
-            }
+    <header className="min-h-[70px]  flex flex-col gap-4    pt-2 sticky top-0 w-full z-10  bg-[#f9f9f9] ">
+      <div className="w-full flex gap-4 justify-between items-center ">
+        <Logo />
+        <button
+          type="button"
+          className="flex items-center justify-center gap-2 text-white bg-blue-500  hover:bg-gradient-to-bl font-medium rounded-md text-sm px-5 py-2 text-center "
+        >
+          Live Support{" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className="w-6 h-6"
           >
-            {link.text}
-          </Link>
-        ))}
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+            />
+          </svg>
+        </button>
+
+        {/* Contact us */}
+        {/* </button> */}
       </div>
-      {/* <div className="flex gap-8 items-center "> */}
-
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          class="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-          />
-        </svg> */}
-
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-8 h-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg> */}
-      {/* </div> */}
       <div>
-        <button className="px-6 py-2 bg-green-500 text-white rounded-sm">Contact us</button>
+        <div className="  rounded-t-sm  bg-[#000435] p-2 flex gap-4 basis-1  mr-auto text-[14px] text-gray-600 ">
+          {linksData.map((link, index) => (
+            <Link
+              key={index}
+              to={link.to}
+              className={
+                path === link.to
+                  ? "bg-gray-100 text-center basis-[100px] px-1 py-1 rounded-sm cursor-pointer"
+                  : "cursor-pointer text-center basis-[100px] px-1 py-1 text-white "
+              }
+            >
+              {link.text}
+            </Link>
+            
+          ))}
+          <button className="ml-auto text-red-300  cursor-pointer ">Log Out</button>
+        </div>
       </div>
     </header>
   );

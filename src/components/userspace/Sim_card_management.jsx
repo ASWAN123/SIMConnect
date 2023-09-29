@@ -8,20 +8,6 @@ const Simcardmanagement = () => {
       {/* <h1 className="text-[24px] text-gray-600 mt-8">Sim card management</h1> */}
 
       <div className="flex gap-2">
-        <nav className="w-[20%] h-[500px] border-r ">
-          <ul class="p-4 ">
-            <li class="mb-4 bg-gray-50 p-1 rounded-sm  cursor-pointer hover:bg-gray-300">
-              Basic Setting
-            </li>
-            <li class="mb-4 bg-gray-50 p-1 rounded-sm  cursor-pointer hover:bg-gray-300">
-              Security Options
-            </li>
-            <li class="mb-4 bg-gray-50 p-1 rounded-sm  cursor-pointer hover:bg-gray-300">
-              Reset Pin
-            </li>
-          </ul>
-        </nav>
-
 
         <div className="w-full flex flex-col gap-4">
           <Basic_setting />

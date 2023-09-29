@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useOutletContext } from 'react-router-dom';
 
 const Basic_setting = () => {
+  const [ userData ] = useOutletContext()
+
 
     const networkData = [
         {
@@ -41,7 +44,7 @@ const Basic_setting = () => {
       ];
       
     
-      const settingsData = [
+      const [settingsData , setSettingsData] =useState( [
         {
           name: 'Bandwidth Control',
           options: [
@@ -59,8 +62,8 @@ const Basic_setting = () => {
         {
           name: 'Guest Network',
           options: [
-            { label: 'Enable', active: true },
-            { label: 'Disable', active: false },
+            { label: 'Enable', active: false },
+            { label: 'Disable', active: true },
           ],
         },
         {
@@ -73,11 +76,33 @@ const Basic_setting = () => {
         {
           name: 'Parental Control',
           options: [
-            { label: 'Enable', active: true },
-            { label: 'Disable', active: false },
+            { label: 'Enable', active: false },
+            { label: 'Disable', active: true },
           ],
         },
-      ];
+      ]);
+
+  const handlechanges  =(position) => {
+    let clonedata = settingsData.map( (x , index) => {
+      if(index  === position){
+        console.log('here 1')
+        let y = x.options.map((w) => {
+          return {...w ,  active:!w.active}
+        })
+        let q = {...x ,  options:y}
+        return q
+
+      }
+      return x 
+    })
+
+    console.log(clonedata)
+
+    setSettingsData(clonedata)
+
+  }
+
+
   return (
     <section className=" w-full  rounded-md  p-2">
     <h3 className='w-full border-b-2 mt-2 mb-3 py-2 text-[20px] font-semibold'>Basic Setting</h3>
@@ -101,8 +126,12 @@ const Basic_setting = () => {
         </p>
         <select name="" id="" className=' bg-transparent outline-none border-none'>Sim card
         <label htmlFor="">Sim card</label>
-        <option defaultChecked value="">Sim card 1</option>
-        <option value="">Sim card 2</option>
+        {
+          userData.subscriptions.map((x ,  index) => {
+            return <option  value="">Sim card {index+1}</option>
+          })
+        }
+        
         </select>
         
           
@@ -117,7 +146,7 @@ const Basic_setting = () => {
       {/* connected  devices */}
       <div className="w-1/2 ">
         <p className="text-[16px] mb-4 font-semibold">Connect Devices</p>
-        <ul className="flex flex-col gap-2  justify-between bg-white p-2 shadow-md rounded-md">
+        <ul className="flex flex-col gap-2  justify-between bg-white p-2 shadow-md rounded-md ">
           {
             deviceData.map((y , index) => {
               return                 <li key={index} className="flex gap-2 items-center justify-between">
@@ -144,11 +173,11 @@ const Basic_setting = () => {
               <p>{x.name}</p>
               <div className="flex gap-2 items-center">
                 <label htmlFor={x.name} className="flex items-center gap-1">
-                  <input type="radio" name={x.name} className=" cursor-pointer"  />
+                  <input type="radio" onChange={()=> {handlechanges (index)}} checked={x.options[0].active} name={x.name} className=" cursor-pointer"  />
                   {x.options[0].label}
                 </label>
                 <label htmlFor={x.name} className="flex items-center gap-1"> 
-                  <input type="radio" name={x.name} className=" cursor-pointer" />
+                  <input type="radio" onChange={() => {handlechanges(index)}} checked={x.options[1].active} name={x.name} className=" cursor-pointer" />
                   {x.options[1].label}
                 </label>
               </div>

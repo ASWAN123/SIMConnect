@@ -18,6 +18,7 @@ import { getPhoneNumbers } from "./phoneData/db";
 import { DotWave } from '@uiball/loaders'
 import { auth } from './firebaseconfig'
 import {  onAuthStateChanged } from "firebase/auth";
+import { Profile } from "./components/userspace/Profile";
 
 function App() {
   // const [Loading , setLoading] = useState(true);
@@ -59,7 +60,8 @@ function App() {
           <Route exact path="/account" element={<Dashbaord />}>
             <Route index element={<Maindash />} />
             <Route exact path="orders" element={ <Orders />  } />
-            {/* <Route exact path="sim-card-management" element={ <Simcardmanagement />  } /> */}
+            <Route exact path="Setting" element={ <Simcardmanagement />  } />
+            <Route exact path="profile" element={ <Profile />  } />
           </Route>
         </Routes>
       </div>

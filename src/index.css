@@ -22,8 +22,9 @@
 
 body {
   font-family: "Noto Sans" sans-serif ;
-  /* background-color:  #f9f9f9 ; */
-  background-color: whitesmoke;
+  background-color:  #f9f9f9 ;
+  /* background-color: whitesmoke; */
+  /* background-color: #bbc9dd; */
   font-size: 14px;
 }
 

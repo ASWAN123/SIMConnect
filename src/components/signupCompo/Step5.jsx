@@ -20,7 +20,7 @@ const Step5 = ({ watch }) => {
         console.log('User registered:', user);
         let  dataclone = {...data }
         delete dataclone.password
-        await db.collection('simconnect').doc(user.uid).set({...dataclone ,  id: user.uid })
+        await db.collection('simconnect').doc(user.uid).set({...dataclone ,date:new Date().toString() ,  id: user.uid })
         setLoading(false)
         setShowCongrats(true)
         return user;

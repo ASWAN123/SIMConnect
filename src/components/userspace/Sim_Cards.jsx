@@ -47,9 +47,9 @@ const SimCards = ({userData}) => {
   ];
 
 
-
+// bg-[#000435]
   return (
-    <div className=" mt-12 h-[350px] w-full bg-[#000435] rounded-md flex  gap-4 py-2 px-4 flex-col relative">
+    <div className=" mt-8 h-[350px] w-full bg-[#000435] rounded-sm flex  gap-4 py-2 px-4 flex-col relative">
       <div className="flex gap-4 items-center justify-between mt-2 ml-4 text-[14px]">
         <p className=" py-1 cursor-pointer border-b border-white text-white ">
           All SIM Cards
@@ -89,7 +89,7 @@ const SimCards = ({userData}) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6 text-green-500 hover:cursor-pointer"
+            className="w-6 h-6 text-white hover:cursor-pointer"
           >
             <path
               strokeLinecap="round"

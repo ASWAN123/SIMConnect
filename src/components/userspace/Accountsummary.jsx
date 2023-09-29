@@ -44,19 +44,19 @@ const Accountsummary = ({ userData }) => {
   // finish from this  point loop over this  to  continure
 
   return (
-    <div className="mt-10 flex flex-col gap-8  ">
+    <div className="mt-8 flex flex-col gap-8  ">
       <h1 className="text-[24px] text-black ">Account Summary</h1>
-      <div className=" p-2 rounded-md bg-gray-200">
+      <div className=" p-2 rounded-md bg-[#000435]">
       {subscriptions.map((sub, index) => {
         
         return (
           <div
             key={index}
-            className=" mt-4 rounded-md w-[70%] mx-auto h-[150px] flex gap-4  justify-between p-4"
+            className=" mt-4 rounded-md w-[70%] mx-auto h-[150px] flex gap-4 text-white justify-between p-4"
           >
             <div className="flex gap-2 items-center  justify-center">
               <IoIosPhonePortrait size={60} />
-              <div className="flex gap-2 flex-col text-gray-500">
+              <div className="flex gap-2 flex-col text-gray-100">
                 <p className=" font-semibold">{sub.location.label}</p>
                 <p>{sub.phonenumber}</p>
                 <p className="flex gap-2 items-center  ">

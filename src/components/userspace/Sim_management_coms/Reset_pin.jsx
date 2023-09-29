@@ -2,7 +2,21 @@ import React, { useEffect, useState } from "react";
 
 const Reset_pin = () => {
 
-  const [option, setOption] = useState("Disable");
+  const [simStatus, setSimStatus] = useState(false);
+  const [option , setOption] = useState('Disable') ;
+  const [ Oldpin ,  setOldpin] = useState('')
+  const  [ Newpin ,  setNewpin] = useState('')
+  const [ pinchanged  ,  setPinchanged] = useState(false)
+
+  const FAKEPinupdate = () => {
+    if (Oldpin.trim().length !== 4 ) return 
+    if (Newpin.trim().length !== 4 ) return 
+
+    setPinchanged(true)
+    setNewpin('')
+    setOldpin('')
+    
+  }
 
 
   return (
@@ -11,7 +25,7 @@ const Reset_pin = () => {
 
       <div className="flex items-center p-4  gap-2 w-full  rounded-md shadow-md bg-white ">
         <p>Lock SIM card : </p>
-        <select value={option} onChange={(e) =>{setOption(e.target.value)} } className= { option === "Disable" ? "text-blue-500 outline-none" : "text-red-500 outline-none" } >
+        <select value={option} onChange={(e) =>{setOption(e.target.value) ; setSimStatus(!simStatus) } } className= { option === "Disable" ? "text-blue-500 outline-none" : "text-red-500 outline-none" } >
           <option value="Enable"  className="">
             Enable
           </option>
@@ -20,7 +34,7 @@ const Reset_pin = () => {
           </option>
         </select>
       </div>
-      <div className="flex gap-4 flex-col  rounded-md shadow-md bg-white p-2 ">
+      <div className= { simStatus ? "flex gap-4 flex-col  rounded-md shadow-md bg-white p-2 " : " pointer-events-none opacity-[0.7] flex gap-4 flex-col  rounded-md shadow-md bg-white p-2" }>
         <p className="text-[16px]">Change SIM PIN</p>
         <div className="flex flex-col w-[400px] gap-4 ">
           <div className="flex items-center gap-4 w-full justify-between   ">
@@ -28,6 +42,8 @@ const Reset_pin = () => {
             <input
               className="w-[250px] h-8 border rounded-md outline-none  px-2 "
               type="number"
+              value={Oldpin}
+              onChange={(e)=> {setOldpin(e.target.value)}}
 
             />
           </div>
@@ -36,10 +52,14 @@ const Reset_pin = () => {
             <input
               className="w-[250px] h-8 border rounded-md outline-none  px-2 "
               type="number"
+              value={Newpin}
+              onChange={(e)=> {setNewpin(e.target.value)}}
             />
           </div>
+
+          { pinchanged && <p className="text-green-600">PIN code has successfully changed</p> } 
         </div>
-        <button className="px-6 py-1 bg-blue-400 ml-auto rounded-md">Save</button>
+        <button onClick={FAKEPinupdate} disabled={(Newpin.trim().length === 4 && Oldpin.trim().length ===4 ) ? false: true } className=" disabled:bg-red-200 disabled:cursor-not-allowed px-6 py-1 text-[16px] text-white rounded-sm bg-blue-400 ml-auto ">Save</button>
       </div>
     </section>
   );
