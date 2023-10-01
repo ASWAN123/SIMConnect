@@ -44,7 +44,7 @@ function Features() {
   const [showmore, setShowmore] = useState(false);
 
   return (
-    <section className="container mx-auto flex flex-col gap-4 mt-8 ">
+    <section id="features" className="container mx-auto flex flex-col gap-4 mt-8 ">
       <h2 className="text-[1.5rem]  my-8 font-semibold ">
         Our Features & Services
       </h2>

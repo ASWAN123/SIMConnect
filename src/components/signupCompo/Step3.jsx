@@ -50,7 +50,7 @@ const Step3 = ({setValue , setValidephone }) => {
       />
 
       <div className="flex flex-col gap-2 py-4  ">
-        {phones?.slice(0, 3).map((x, index) => {
+        {phones?.length >= 1 && phones?.slice(0, 3).map((x, index) => {
           return (
             <div
               key={index}
@@ -79,6 +79,11 @@ const Step3 = ({setValue , setValidephone }) => {
             </div>
           );
         })}
+
+        {
+          !phones && location   &&  <p>No phone number for  this country please try again country</p>
+ 
+        }
       </div>
     </section>
   );

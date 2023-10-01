@@ -9,6 +9,20 @@ export const Profile = () => {
     const  {data  ,  db } = useContextData()
     const  [ updatedProfile , setUpdatedProfile ] = useState(false) 
 
+    const [ error , setError] = useState(null)
+
+    // useEffect(() => {
+    //   console.log('changed  xx')
+    //   if(error){
+    //     // throw new Error({hasError : true})
+    //     throw Error() ;
+    //   }
+    // } ,  [setError])
+
+
+
+
+
     const [info , setInfo] = useState({})
 
     useEffect(() => {
@@ -33,17 +47,29 @@ export const Profile = () => {
     } , [updatedProfile] )
 
 
-    const saveChanges = (e) => {
+    const saveChanges = async (e) => {
         e.preventDefault()
 
         let userClone  = {...userData , first_name:info.first_name , last_name:info.last_name ,  address:info.address , Zipcode:info.Zipcode  }
 
-        console.log(userClone)
-
-        db.collection('simconnect').doc(userData.id).update({...userClone})
-        setUpdatedProfile(true)
+        
+        let id = userData.id
+        id = '123456789'
+        await db.collection('simconnect').doc(id).update({...userClone})
+        .then(() => {
+          setUpdatedProfile(true)
+        }).catch((error) => {
+          // setError(error)
+          console.log(error)
+          /// redirect  to  error  page  it  better  for  this  case 
+          
+        });
+        
 
     }
+
+
+    // userData = {} ;
 
   return (
     <div className="mt-8 flex flex-col gap-8  ">

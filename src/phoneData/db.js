@@ -10,9 +10,16 @@ export const  getPhoneNumbers = (location) => {
         // console.log(numbers[x.toString()])
         if (numbers[x.toString()]["country"] === location){
             data = numbers[x].phones
-            // console.log(data)
+            
         }
     }
 
-    return data
+
+    if( data ){
+        return data
+    }else{
+        return false
+    }
+
+
 } 

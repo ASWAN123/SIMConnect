@@ -1,12 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
-import { useContextData } from "../ContextData";
-import countryList from "react-select-country-list";
-// import Select from "react-select";
-// import { MdOutline4GPlusMobiledata } from "react-icons/md";
-// import { BiMessageRounded } from "react-icons/bi";
-// import { IoCallSharp } from "react-icons/io5";
 
 import Step5 from "./signupCompo/Step5";
 import Step4 from "./signupCompo/Step4";
@@ -16,10 +10,10 @@ import Step1 from "./signupCompo/Step1";
 import Tofollow from "./signupCompo/Tofollow";
 import { useLocation, useOutletContext } from "react-router-dom";
 
-function Signup() {
+function Signup({userData}) {
   const  location = useLocation() ;
   const  path  = location.pathname ;
-  const userData  = location?.state
+  // const userData  = location?.state ;
 
 
   const {
@@ -93,7 +87,7 @@ function Signup() {
 
         {/* buttons */}
         <div className="w-full  flex gap-4 items-center justify-end mt-6 p-2 fixed z-30 bottom-4  right-8 ">
-          {formstep >= 2 && formstep <= 4 && (
+          {formstep >= 2 && path === "/signup" && formstep <= 4 && (
             <input
               type="button"
               value="Back"

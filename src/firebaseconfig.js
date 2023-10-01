@@ -3,15 +3,14 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { getAuth } from "firebase/auth"
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyAOgYpC5TrdHwjKCIf8eeNbIVl2MWSFHn8",
-  authDomain: "simconnect-c4ab8.firebaseapp.com",
-  projectId: "simconnect-c4ab8",
-  storageBucket: "simconnect-c4ab8.appspot.com",
-  messagingSenderId: "458763201774",
-  appId: "1:458763201774:web:04e94a4e11d431110197ff"
-};
+  apiKey:process.env.REACT_APP_A ,
+  authDomain:process.env.REACT_APP_B ,
+  projectId: process.env.REACT_APP_C,
+  storageBucket:process.env.REACT_APP_D ,
+  messagingSenderId:process.env.REACT_APP_E ,
+  appId: process.env.REACT_APP_F
+  };
 
 // Initialize Firebase
 

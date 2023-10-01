@@ -12,6 +12,8 @@ const Step5 = ({ watch ,  userData  }) => {
   const  location  = useLocation()
   let [loading, setLoading] = useState(true);
   const  path  = location.pathname
+  
+  
 
   
 
@@ -45,6 +47,14 @@ const Step5 = ({ watch ,  userData  }) => {
       return
     }
     if (path === '/account/neworder'){
+      const addSubscription = async () => {
+        let data = watch()
+        let newsub = data.subscriptions[0]
+        console.log(userData)
+        await db.collection('simconnect').doc(userData.id).update({  subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })})
+        setLoading(false)
+        setShowCongrats(true)
+      }
       addSubscription()
     }
 
@@ -54,14 +64,7 @@ const Step5 = ({ watch ,  userData  }) => {
   } , [] );
 
 
-  const addSubscription = async () => {
-    let data = watch()
-    let newsub = data.subscriptions[0]
-    console.log(userData)
-    await db.collection('simconnect').doc(userData.id).update({  subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })})
-    setLoading(false)
-    setShowCongrats(true)
-  }
+
 
   return (
     <section className="w-[80%] min-h-[300px] mx-auto py-1  relative ">

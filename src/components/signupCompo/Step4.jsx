@@ -7,22 +7,22 @@ const Step4 = ({ getValues ,  setValue, setValidpaymet }) => {
   const paymentMethods = [
     {
       name: 'PayPal',
-      imageSrc: './paypal.png',
+      imageSrc: '/paypal.png',
       description: 'Paypal',
     },
     {
       name: 'Apple Pay',
-      imageSrc: './applepay.png',
+      imageSrc: '/applepay.png',
       description: 'Apple pay',
     },
     {
       name: 'MasterCard',
-      imageSrc: './mastercard.png',
+      imageSrc: '/mastercard.png',
       description: 'MasterCard',
     },
     {
       name: 'American Express',
-      imageSrc: './americanexpress.png',
+      imageSrc: '/americanexpress.png',
       description: 'American express',
     },
   ];
