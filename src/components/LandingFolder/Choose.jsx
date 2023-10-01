@@ -2,7 +2,7 @@ import React from 'react'
 
 function Choose() {
   return (
-    <section className="flex flex-col gap-4 mt-8">
+    <section className=" container mx-auto flex flex-col gap-4 mt-8">
     <h2 className="text-[1.5rem] font-semibold mb-8">Why Choose SIM-Connect</h2>
     <p className="pl-4">At SIMConnect, we're not just a SIM card provider; we're your partners in staying connected. Our commitment to reliability, speed, and customer satisfaction sets us apart:</p>
 

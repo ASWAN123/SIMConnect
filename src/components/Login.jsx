@@ -131,7 +131,7 @@ function Login() {
         <p>forget password ?</p>
         <div className="flex gap-1 items-center">
           <p>Don't have an account ? </p>
-          <Link to="/Signup" className="text-blue-800 py-1 rounded-sm ">
+          <Link to="/signup" className="text-blue-800 py-1 rounded-sm ">
             Sign up
           </Link>
         </div>

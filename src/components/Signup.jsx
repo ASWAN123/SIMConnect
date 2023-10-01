@@ -14,22 +14,20 @@ import Step3 from "./signupCompo/Step3";
 import Step2 from "./signupCompo/Step2";
 import Step1 from "./signupCompo/Step1";
 import Tofollow from "./signupCompo/Tofollow";
-import { useLocation, useOutlet, useOutletContext } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 
 function Signup() {
   const  location = useLocation() ;
   const  path  = location.pathname ;
-  const  [ userData ] = useOutletContext()
+  const userData  = location?.state
 
-  const { db , auth } = useContextData() ;
+
   const {
     watch,
     register,
     setValue,
     getValues,
     trigger,
-    
-    setError,
     formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
@@ -91,7 +89,7 @@ function Signup() {
         {formstep === 4 && <Step4 setValue={setValue} setValidpaymet={setValidpaymet} getValues={getValues} />}
 
         {/* congratulation */}
-        {formstep === 5 && <Step5 watch={watch} />}
+        {formstep === 5 && <Step5 watch={watch }  userData= {userData}   />}
 
         {/* buttons */}
         <div className="w-full  flex gap-4 items-center justify-end mt-6 p-2 fixed z-30 bottom-4  right-8 ">
@@ -124,7 +122,7 @@ function Signup() {
           )}
         </div>
       </form>
-      <div>{JSON.stringify(watch(), null, 2)}</div>
+      {/* <div>{JSON.stringify(watch(), null, 2)}</div> */}
     </div>
   );
 }

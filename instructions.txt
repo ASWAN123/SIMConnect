@@ -19,3 +19,4 @@ use  this  image for  the  background  image  of  the  your  website
 think again
 
 name  ,  email , password , address , 
+update  the  subscription  object  in add new sim card 

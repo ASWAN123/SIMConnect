@@ -1,10 +1,14 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useOutletContext } from 'react-router-dom'
 import { GiConfirmed } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 
 const Orderdetails = ({setShowDetails ,  showDetails}) => {
+  let id  = showDetails.id 
+  const [ userData ] = useOutletContext() 
+  let order = userData.subscriptions.find( x => x.id === id )
+
 
 
 
@@ -12,9 +16,12 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
     return (
       
         <div className="absolute shadow-md p-4 z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[500px] rounded-lg bg-[#f9f9f9] ">
+          {/* {
+            console.log(order)
+          } */}
         <p className=" ">
                 Order details :{" "}
-                <span className=" text-blue-500 ">#123123123</span>
+                <span className=" text-blue-500 ">#{order.id}</span>
               </p>
           <div  className="  cursor-pointer  flex flex-col gap-4  relative" >
             <GrClose
@@ -34,7 +41,7 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
             </div>
             <hr className="w-full" />
             <div className="flex flex-col gap-2 items-center justify-center ">
-              <GiConfirmed size={24} />
+              <GiConfirmed size={24} color="lightgreen" />
               <p>Processing</p>
             </div>
             <hr className="w-full" />
@@ -46,9 +53,9 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
           <div className="flex flex-col gap-2 my-6 pl-8">
               <p>To :</p>
               <address className="flex flex-col gap-1">
-                <p>Jane Doe</p>
-                <p>Los Angeles, CA</p>
-                <p>123 Main Street, 90210</p>
+                <p>{userData.first_name + " " + userData.last_name}</p>
+                <p>{order.location.label + ' , ' + order.location.value}</p>
+                <p>{userData.address}, {userData.zipcode}</p>
               </address>
             </div>
           {/* <hr className="w-full mt-8 " /> */}
@@ -68,12 +75,12 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="text-center py-2">#Free</td>
-                  <td className="text-center py-2">123123123</td>
-                  <td className="text-center py-2">Visa ending...4545</td>
-                  <td className="text-center py-2">Processing</td>
-                  <td className="text-center py-2">25-01-2023 20:34</td>
-                  <td className="text-center py-2">35$</td>
+                  <td className="text-center py-2">{order.name}</td>
+                  <td className="text-center py-2">{order.id}</td>
+                  <td className="text-center py-2">{order.payment}</td>
+                  <td className="text-center py-2">{order.deliverystatus}</td>
+                  <td className="text-center py-2">{ new Date(order.date.seconds * 1000 + Math.round(order.date.nanoseconds / 1000000)).toDateString()  }</td>
+                  <td className="text-center py-2">{order.price}$</td>
                 </tr>
               </tbody>
             </table>

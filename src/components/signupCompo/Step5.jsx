@@ -6,17 +6,20 @@ import { Link, redirect, useLocation, useNavigate, useNavigation, useOutletConte
 import firebase from 'firebase/compat/app' ;
 
 
-const Step5 = ({ watch }) => {
+const Step5 = ({ watch ,  userData  }) => {
   const { db , auth } = useContextData();
   let [showCongrats, setShowCongrats] = useState(false);
-  let [loading, setLoading] = useState(true);
   const  location  = useLocation()
+  let [loading, setLoading] = useState(true);
   const  path  = location.pathname
-  const  [ userData] = useOutletContext()
-  let navigate  = useNavigate() ;
+
+  
+
+
+
 
   useEffect(() => {
-    if( path !== "/account/neworder"){
+    if( path === "/signup"){
       let data = watch() ;
       let email = data.email ; 
       let password = data.password ; 
@@ -28,7 +31,7 @@ const Step5 = ({ watch }) => {
           let  dataclone = {...data }
           delete dataclone.password
           let date  = new  Date()
-          await db.collection('simconnect').doc(user.uid).set({...dataclone , date:date.getFullYear() ,  id: user.uid })
+          await db.collection('simconnect').doc(user.uid).set({...dataclone , signupdate:date.getFullYear() ,  id: user.uid })
           setLoading(false)
           setShowCongrats(true)
           return user;
@@ -41,22 +44,24 @@ const Step5 = ({ watch }) => {
       registerNewUser(email, password)
       return
     }
-
-    console.log({...watch() })
-    let data = watch()
-    let newsub = data.subscriptions[0]
-    const addSubscription = async () => {
-      await db.collection('simconnect').doc(userData.id).update({ subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub})})
-      setLoading(false)
-      setShowCongrats(true)
-      
+    if (path === '/account/neworder'){
+      addSubscription()
     }
 
-    addSubscription()
 
     
 
   } , [] );
+
+
+  const addSubscription = async () => {
+    let data = watch()
+    let newsub = data.subscriptions[0]
+    console.log(userData)
+    await db.collection('simconnect').doc(userData.id).update({  subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })})
+    setLoading(false)
+    setShowCongrats(true)
+  }
 
   return (
     <section className="w-[80%] min-h-[300px] mx-auto py-1  relative ">

@@ -54,7 +54,7 @@ export const Profile = () => {
             <img src="/userprofile.png" className="w-[150px]" alt="" />
 
           <p className="text-[16px] font-semibold ">{userData.last_name} {userData.first_name}</p>
-          <p className="text-[16px] font-semibold flex flex-col gap-2 items-center">Registered since : <span>{userData.date}</span></p>
+          <p className="text-[16px] font-semibold flex flex-col gap-2 items-center">Registered since : <span>{userData.signupdate}</span></p>
         </div>
         <div className="w-full  flex flex-col gap-4 pl-4">
                 <h2 className="text-[30px] flex items-center gap-2 justify-between">Profile information  { updatedProfile && <span className="text-green-400 flex items-center gap-2 text-[12px] "><FcCheckmark size={18} color="green"/> Succesfully updated</span>}</h2>
