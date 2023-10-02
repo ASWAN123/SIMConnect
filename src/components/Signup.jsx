@@ -8,12 +8,12 @@ import Step3 from "./signupCompo/Step3";
 import Step2 from "./signupCompo/Step2";
 import Step1 from "./signupCompo/Step1";
 import Tofollow from "./signupCompo/Tofollow";
-import { useLocation, useOutletContext } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Signup({userData}) {
   const  location = useLocation() ;
   const  path  = location.pathname ;
-  // const userData  = location?.state ;
+
 
 
   const {
@@ -32,13 +32,12 @@ function Signup({userData}) {
 
 
   const [formstep, setFormstep] = useState(1);
-  //  thats  because  the  watch() object  dosn't recognize  the  changes  so  the  the  compoennet  to  rerender after the  change  happend
+
   const [ validphone  ,  setValidephone]  = useState(false)
-  const [ validpaymet  ,  setValidpaymet]  = useState(false)
+  // const [ validpaymet  ,  setValidpaymet]  = useState(false)
 
   const nextFormstep = async () => {
     const data = await trigger();
-    console.log(data);
     if (data) {
       setFormstep((cur) => cur + 1);
     }
@@ -80,7 +79,7 @@ function Signup({userData}) {
         {formstep === 3 && <Step3 setValue={setValue} setValidephone={setValidephone} />}
 
         {/* checkout */}
-        {formstep === 4 && <Step4 setValue={setValue} setValidpaymet={setValidpaymet} getValues={getValues} />}
+        {formstep === 4 && <Step4 setValue={setValue}  getValues={getValues} />}
 
         {/* congratulation */}
         {formstep === 5 && <Step5 watch={watch }  userData= {userData}   />}
@@ -116,7 +115,7 @@ function Signup({userData}) {
           )}
         </div>
       </form>
-      {/* <div>{JSON.stringify(watch(), null, 2)}</div> */}
+      <div className="hidden">{JSON.stringify(watch(), null, 2)}</div>
     </div>
   );
 }

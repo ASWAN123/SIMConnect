@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BiShow } from "react-icons/bi";
-import { useForm, SubmitHandler } from "react-hook-form";
+
+import { useForm } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useContextData } from "../ContextData";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function Login() {
-  const { db, auth } = useContextData();
+  const {  auth } = useContextData();
   let navigate = useNavigate();
   const [checking, setchecking] = useState(false);
   const [showpassword, setShowpassword] = useState(false);
@@ -15,8 +15,8 @@ function Login() {
     watch,
     register,
     handleSubmit,
-    setError,
-    formState: { errors, isValid },
+    
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -27,18 +27,14 @@ function Login() {
     setchecking(true);
     let email = watch().email;
     let password = watch().password;
-    console.log(email, password);
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
         navigate("/account");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        //   setError(errorMessage)
         setchecking(false);
+        navigate('/error' ,  {state: error.message})
       });
   };
 

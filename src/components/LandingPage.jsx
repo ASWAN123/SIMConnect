@@ -1,7 +1,6 @@
 import React from 'react'
 import Main from "./LandingFolder/Main"
 import Features from "./LandingFolder/Features"
-import Choose from "./LandingFolder/Choose"
 import Pricing from "./LandingFolder/Pricing"
 import Footer from './LandingFolder/Footer'
 

@@ -62,7 +62,7 @@ function updateTrackingStatus() {
 
         if (response.getResponseCode() === 200) {
           var data = JSON.parse(response.getContentText());
-          console.log(data)
+           (data)
           let status;
 
           if (data && data['dat'] && data['dat'][0] && data['dat'][0]['track'] && data['dat'][0]['track']['z0'] && data['dat'][0]['track']['z0']['z'] !== undefined) {

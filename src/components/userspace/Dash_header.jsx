@@ -1,10 +1,7 @@
 import React from "react";
 import Logo from "../Logo";
-import { IoMdNotifications } from "react-icons/io";
-import { FaUserCircle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {  signOut } from "firebase/auth";
-import  {   LiaSimplybuilt  } from 'react-icons/lia'
 import { useContextData } from "../../ContextData";
 const Dashheader = () => {
   const location = useLocation();
@@ -16,7 +13,8 @@ const Dashheader = () => {
     { to: "/account", text: "Dashboard" },
     { to: "/account/orders", text: "Orders" },
     { to: "/account/Setting", text: "Setting" },
-    { to: "/account/profile", text: "profile" },
+    { to: "/account/profile", text: "Profile" },
+    { to: "/account/support", text: "Support" },
   ];
 
 

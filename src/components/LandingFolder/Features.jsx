@@ -62,7 +62,7 @@ function Features() {
             >
               <img
                 className="min-w-[70%] h-[150px] rounded-md "
-                src={x.imageSrc}
+                src={"/images"+x.imageSrc}
                 alt=""
               />
               <p className="text-[16px]  text-gray-600 ">{x.title}</p>

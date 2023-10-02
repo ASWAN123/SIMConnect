@@ -3,7 +3,7 @@ import Step2 from '../signupCompo/Step2'
 
 
 
-/// scroll into  view  , offset with  js
+
 
 
 function Pricing() {

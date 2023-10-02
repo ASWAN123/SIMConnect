@@ -7,11 +7,12 @@ import firebase from 'firebase/compat/app' ;
 
 
 const Step5 = ({ watch ,  userData  }) => {
-  const { db , auth } = useContextData();
+  const { db , auth } = useContextData() ;
   let [showCongrats, setShowCongrats] = useState(false);
-  const  location  = useLocation()
-  let [loading, setLoading] = useState(true);
-  const  path  = location.pathname
+  const  location  = useLocation() ;
+  let [loading, setLoading] = useState(true) ;
+  const  path  = location.pathname ;
+  let navigate = useNavigate() ;
   
   
 
@@ -29,17 +30,16 @@ const Step5 = ({ watch ,  userData  }) => {
         try { 
           const userCredential = await createUserWithEmailAndPassword( auth , email, password);
           const user = userCredential.user ;
-          console.log('User registered:', user);
+
           let  dataclone = {...data }
           delete dataclone.password
           let date  = new  Date()
-          await db.collection('simconnect').doc(user.uid).set({...dataclone , signupdate:date.getFullYear() ,  id: user.uid })
+          await db.collection('simconnect').doc(user.uid).set({...dataclone , messages:[{From:'Network' ,  subject:'Welcome' , description:'What are your initial impressions of our website? Is there anything specific that stands out to you, whether positive or constructive feedback?' }]  , signupdate:date.getFullYear() ,  id: user.uid })
           setLoading(false)
           setShowCongrats(true)
           return user;
         } catch (error) {
-          console.error('Error registering user:', error);
-          throw error;
+          navigate('/error' ,  {state: error.message})
         }
       };
   
@@ -50,8 +50,7 @@ const Step5 = ({ watch ,  userData  }) => {
       const addSubscription = async () => {
         let data = watch()
         let newsub = data.subscriptions[0]
-        console.log(userData)
-        await db.collection('simconnect').doc(userData.id).update({  subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })})
+        await db.collection('simconnect').doc(userData.id).update({   subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })})
         setLoading(false)
         setShowCongrats(true)
       }
@@ -83,7 +82,7 @@ const Step5 = ({ watch ,  userData  }) => {
           <div className="flex flex-col gap-2 items-center justify-center z-20  ">
             <img
               className="w-[150px] mix-blend-multiply  "
-              src="/animation_lmi4a4zk_small.gif"
+              src="/images/animation_lmi4a4zk_small.gif"
               alt=""
             />
             <p className="text-[16px] text-black font-bold ">

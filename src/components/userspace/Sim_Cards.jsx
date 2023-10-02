@@ -50,12 +50,12 @@ const SimCards = ({userData}) => {
 
 
   const createNewOrder = () => {
-    console.log(userData)
+
     navigate('/account/neworder', { state: userData });
   }
 
 
-// bg-[#000435]
+
   return (
     <div className=" mt-8 h-[350px] w-full bg-[#000435] rounded-sm flex  gap-4 py-2 px-4 flex-col relative">
       <div className="flex gap-4 items-center justify-between mt-2 ml-4 text-[14px]">
@@ -106,7 +106,7 @@ const SimCards = ({userData}) => {
             />
           </svg>
         </div>
-        {/* <BsFillPatchPlusFill size={40} color='white' className='   top-[-20px] rounded-full right-10 ' /> */}
+      
       </div>
 
       <div className="flex gapp-4   items-center  ">
@@ -117,7 +117,7 @@ const SimCards = ({userData}) => {
             key={index}
             className="relative w-[300px] h-[200px]    top-0 left-0 ml-4 mt-2 rounded-lg text-[14px] flex flex-col "
           >
-            <img className="" src="/simcard.png" alt="" />
+            <img className="" src="/images/simcard.png" alt="" />
             <div className="absolute flex flex-col w-full  pl-2 py-2 gap-2 ">
               <div className="flex flex-col gap-1 ">
                 <p className="">

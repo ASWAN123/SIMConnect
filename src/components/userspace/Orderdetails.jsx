@@ -15,10 +15,7 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
 
     return (
       
-        <div className="absolute shadow-md p-4 z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[500px] rounded-lg bg-[#f9f9f9] ">
-          {/* {
-            console.log(order)
-          } */}
+        <div className="  p-4 z-50 w-full h-[500px]  bg-gray-200 ">
         <p className=" ">
                 Order details :{" "}
                 <span className=" text-blue-500 ">#{order.id}</span>
@@ -29,7 +26,7 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
               onClick={() => {setShowDetails({...showDetails ,  show:false})}}
               className=" rounded-full  absolute right-1 -top-5 "
             />
-            <img src="/complete.png" className="w-[50px] mx-auto rounded-lg" alt="" />
+            <img src="/images/complete.png" className="w-[50px] mx-auto rounded-lg" alt="" />
             <p className="text-center w-full text-[20px] text-green-700">
               Thank You For Your Purchase !{" "}
             </p>
@@ -39,12 +36,12 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
               <GiConfirmed size={24} color="lightgreen" />
               <p>Ordered</p>
             </div>
-            <hr className="w-full" />
+            <hr className="w-full border-gray-500" />
             <div className="flex flex-col gap-2 items-center justify-center ">
               <GiConfirmed size={24} color="lightgreen" />
               <p>Processing</p>
             </div>
-            <hr className="w-full" />
+            <hr className="w-full  border-gray-500" />
             <div className="flex flex-col gap-2 items-center justify-center ">
               <GiConfirmed size={24} />
               <p>Delivered</p>
@@ -59,9 +56,9 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
               </address>
             </div>
           {/* <hr className="w-full mt-8 " /> */}
-          <div className="w-full mt-4 px-4 py-2 border-t-black flex gap-2 items-center justify-between ">
+          <div className="w-full mt-4 px-4 py-2  flex gap-2 items-center justify-between ">
             <table className="w-full table-fixed">
-              <thead className="border-b">
+              <thead className="">
                 <tr>
                   <td className="text-center py-2 font-semibold ">plan</td>
                   <td className="text-center py-2 font-semibold ">ID</td>
@@ -85,8 +82,6 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
               </tbody>
             </table>
           </div>
-
-          {/* order  infos */}
 
         </div>
         

@@ -7,7 +7,7 @@ export const  getPhoneNumbers = (location) => {
     let numbers  = phones['_default']
     let data ;
     for ( let x  in numbers ){
-        // console.log(numbers[x.toString()])
+        //  (numbers[x.toString()])
         if (numbers[x.toString()]["country"] === location){
             data = numbers[x].phones
             

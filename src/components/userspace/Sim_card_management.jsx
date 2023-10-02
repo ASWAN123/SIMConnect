@@ -5,7 +5,7 @@ import Reset_pin from "./Sim_management_coms/Reset_pin";
 const Simcardmanagement = () => {
   return (
     <div className="w-[90%] mx-auto flex flex-col gap-8 mt-8">
-      {/* <h1 className="text-[24px] text-gray-600 mt-8">Sim card management</h1> */}
+
 
       <div className="flex gap-2">
 
@@ -14,27 +14,6 @@ const Simcardmanagement = () => {
           <Reset_pin />
         </div>
 
-
-        {/* <section className="w-[60%] flex flex-col gap-4">
-          <div className="flex items-center justify-between  gap-2">
-            <p>SIM card status</p>
-            <input type="checkbox" />
-          </div>
-          <div className="flex items-center justify-between gap-2">
-            <p>Mobile network</p>
-            <select name="" id="" className=" bg-transparent">
-              <option value="">3G</option>
-              <option value="">4G</option>
-              <option value="">5G</option>
-            </select>
-          </div>
-          <div className="flex items-center justify-between gap-2">
-            <p>Data usage limits</p>
-            <a href="/" className="text-blue-500 ">
-              Edit
-            </a>
-          </div>
-        </section> */}
       </div>
     </div>
   );

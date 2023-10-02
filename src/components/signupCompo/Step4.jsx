@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 
-const Step4 = ({ getValues ,  setValue, setValidpaymet }) => {
+const Step4 = ({ getValues ,  setValue }) => {
 
   const [ checked  , setChecked] = useState('')
 
   const paymentMethods = [
     {
       name: 'PayPal',
-      imageSrc: '/paypal.png',
+      imageSrc: '/images/paypal.png',
       description: 'Paypal',
     },
     {
       name: 'Apple Pay',
-      imageSrc: '/applepay.png',
+      imageSrc: '/images/applepay.png',
       description: 'Apple pay',
     },
     {
       name: 'MasterCard',
-      imageSrc: '/mastercard.png',
+      imageSrc: '/images/mastercard.png',
       description: 'MasterCard',
     },
     {
       name: 'American Express',
-      imageSrc: '/americanexpress.png',
+      imageSrc: '/images/americanexpress.png',
       description: 'American express',
     },
   ];
@@ -30,7 +30,7 @@ const Step4 = ({ getValues ,  setValue, setValidpaymet }) => {
 
   const handlePaymentClick = (paymentName) => {
     setValue('subscriptions.0.payment', paymentName);
-    setValidpaymet(true);
+
     setChecked(paymentName)
   };
 
@@ -38,7 +38,7 @@ const Step4 = ({ getValues ,  setValue, setValidpaymet }) => {
     let x = getValues('subscriptions.0.payment')
     if(x !== undefined){
       setChecked(x)
-      setValidpaymet(true);
+
     }
 
   } ,  [])

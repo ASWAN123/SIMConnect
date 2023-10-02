@@ -11,7 +11,7 @@ function Main() {
       <Link to='/signup'  className="ml-4 w-[250px] border px-6 py-2 text-lg text-white rounded-md bg-gradient-to-br from-blue-500 to-blue-300 ">Try For free</Link>
     </div>
     <div className="flex-1">
-      <img src="./image1.png" className="w-[800px]  mx-auto" alt="" />
+      <img src="/images/image1.png" className="w-[800px]  mx-auto" alt="" />
     </div>
   </section>
   )

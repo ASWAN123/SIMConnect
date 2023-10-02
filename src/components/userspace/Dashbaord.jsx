@@ -13,13 +13,10 @@ const Dashbaord = () => {
   const navigate = useNavigate();
 
 
-  // handling  user  logged  in state 
+
   useEffect(() => {
-    // console.log(auth);
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
-        console.log(uid);
         setUserID(user.uid);
         setLoading(false);
       } else {
@@ -29,24 +26,32 @@ const Dashbaord = () => {
     });
   }, []);
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 100,
+    })
+
+  } , [])
+
   let userData = data?.find(x => x.id === userID)
 
   return (
     <>
       {!Loading && userData && (
-        <div className="text-[14px] relative container mx-auto">
+        <div className="text-[14px] container mx-auto ">
           <Dashheader />
 
           <div id="main" className="">
             <Outlet  context={[userData]} />
           </div>
 
-          {/* <IoChatboxEllipsesSharp size={50} color="blue" className='fixed bottom-4 right-10 cursor-pointer ' /> */}
+          
         </div>
       )}
       {  Loading && !userData && (
-        <div className="absolute  w-full h-screen z-11 top-0 bg-blue-950/80 flex justify-center items-center ">
-          <DotWave size={47} speed={1} color="white" />
+        <div className="absolute  w-full h-screen z-11 top-0 bg-[#f9f9f9] flex justify-center items-center ">
+          <DotWave size={47} speed={1} color="black" />
         </div>
       )}
     </>

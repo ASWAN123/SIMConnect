@@ -13,13 +13,6 @@ const Orders = () => {
   
   
 
-  // let data = [...userData.subscriptions].map((item) => {
-  //   item['name'] = userData.first_name + ' ' + userData.last_name
-  //   item['address'] = userData.address
-  //   return item
-  // })
-  // console.log(data)
-
 
 
 
@@ -28,11 +21,10 @@ const Orders = () => {
   
 
   const [orders, setOrder] = useState(data.slice(0, 3));
-  const [ page, setPage] = useState(1);
+
   const [showDetails, setShowDetails] = useState({ show: false, id: "" });
 
-  let pagination =   Math.floor(userData.subscriptions.length / 3) 
-  console.log(pagination , 'pagi')
+
 
 
   const  handleshowDetails = (x) => {
@@ -40,25 +32,23 @@ const Orders = () => {
   }
 
   const createNewOrder = () => {
-    console.log(userData)
+
     navigate('/account/neworder', { state: userData });
   }
 
   return (
-    <div className="mt-8 w-full mb-[100px] ">
+    <div className="mt-8 w-full mb-[100px]  h-[500px] border relative ">
       <div className="flex items-center justify-between ">
         <h1 className="text-[24px] text-gray-600 ">Orders History</h1>
         { userData.subscriptions.length < 3 && <button onClick ={createNewOrder} className="px-6 py-2  bg-green-500 text-white rounded-sm ">
           New order
         </button> }
       </div>
-      <div className="w-[90%]  flex flex-col gap-4 mx-auto mt-4 relative">
-        {/* <p className="text-[20px] ">Orders History</p> */}
+      <div className="w-[90%]  flex flex-col gap-4 mx-auto mt-4 ">
+        
 
-        <div className="w-full pl-6 flex flex-col items-center justify-between gap-4">
+        <div className="w-full pl-6 flex flex-col items-center justify-between gap-4 ">
           {/* order details   */}
-
-          { showDetails.show && <Orderdetails setShowDetails ={setShowDetails} showDetails ={showDetails}/> }
 
 
 
@@ -81,7 +71,7 @@ const Orders = () => {
                     <td className="bg-white last:rounded-r-lg first:rounded-l-lg  py-3 px-1 flex gap-2 items-center">
                       <img
                         className="w-[30px]"
-                        src="/profileimage.png"
+                        src="/images/profileimage.png"
                         alt=""
                       />
                       <p>{userData.first_name+ ' ' +userData.last_name}</p>
@@ -125,7 +115,8 @@ const Orders = () => {
           </table>
         </div>
       </div>
-      { showDetails.show && <div className="w-full absolute top-0 left-0 bg-gray-700 h-screen z-40  opacity-20 "></div> }
+      {/* you can add bg of  gray  with  some opacity */}
+      { showDetails.show && <div className=" absolute top-0  "><Orderdetails setShowDetails ={setShowDetails} showDetails ={showDetails}/></div> }
     </div>
   );
 };

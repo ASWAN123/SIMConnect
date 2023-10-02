@@ -41,7 +41,7 @@ const Accountsummary = ({ userData }) => {
     },
   ];
 
-  // finish from this  point loop over this  to  continure
+
 
   return (
     <div className="mt-8 flex flex-col gap-8  ">

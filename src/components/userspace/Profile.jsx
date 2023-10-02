@@ -1,23 +1,16 @@
 
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useContextData } from "../../ContextData";
 import  {  FcCheckmark } from 'react-icons/fc'
 
 export const Profile = () => {
     const  [ userData ] = useOutletContext()
-    const  {data  ,  db } = useContextData()
+    const  {  db } = useContextData()
     const  [ updatedProfile , setUpdatedProfile ] = useState(false) 
+    const  navigate  = useNavigate()
 
-    const [ error , setError] = useState(null)
 
-    // useEffect(() => {
-    //   console.log('changed  xx')
-    //   if(error){
-    //     // throw new Error({hasError : true})
-    //     throw Error() ;
-    //   }
-    // } ,  [setError])
 
 
 
@@ -51,17 +44,12 @@ export const Profile = () => {
         e.preventDefault()
 
         let userClone  = {...userData , first_name:info.first_name , last_name:info.last_name ,  address:info.address , Zipcode:info.Zipcode  }
-
-        
-        let id = userData.id
-        id = '123456789'
-        await db.collection('simconnect').doc(id).update({...userClone})
+        await db.collection('simconnect').doc(userData.id).update({...userClone})
         .then(() => {
           setUpdatedProfile(true)
         }).catch((error) => {
-          // setError(error)
-          console.log(error)
-          /// redirect  to  error  page  it  better  for  this  case 
+         
+          navigate('/error' , { state : error.message } )
           
         });
         
@@ -69,15 +57,13 @@ export const Profile = () => {
     }
 
 
-    // userData = {} ;
 
   return (
     <div className="mt-8 flex flex-col gap-8  ">
-      {/* <h1 className="text-[24px] text-black ">Profile</h1> */}
 
       <div className="w-full flex gap-2 ">
         <div className="w-[300px]  flex flex-col gap-2 items-center p-2 bg-gradient-to-br from-bg-white to-bg-gray-50">
-            <img src="/userprofile.png" className="w-[150px]" alt="" />
+            <img src="/images/userprofile.png" className="w-[150px]" alt="" />
 
           <p className="text-[16px] font-semibold ">{userData.last_name} {userData.first_name}</p>
           <p className="text-[16px] font-semibold flex flex-col gap-2 items-center">Registered since : <span>{userData.signupdate}</span></p>

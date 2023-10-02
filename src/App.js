@@ -1,58 +1,45 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/LandingFolder/Header";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import { Contextprovider, useContextData } from "./ContextData";
+import { Contextprovider } from "./ContextData";
 import Dashbaord from "./components/userspace/Dashbaord";
 import Maindash from "./components/userspace/Dash_main";
 import Orders from "./components/userspace/Orders";
 import Simcardmanagement from "./components/userspace/Sim_card_management";
-// import Billinghistory from './components/userspace/Billing_history'
-// import Networkmap from './components/userspace/Networkmap'
-// import Devices from "./components/userspace/Devices";
-// import Referafriend from "./components/userspace/Referafriend";
-// import Orderdetails from "./components/userspace/Orderdetails";
-import { getPhoneNumbers } from "./phoneData/db";
-import { DotWave } from "@uiball/loaders";
+
+
 import { auth } from "./firebaseconfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { Profile } from "./components/userspace/Profile";
 import OrderPage from "./components/userspace/OrderPage";
 import Errorpage from "./components/Errorpage";
-import ErrorBoundary from "./Errorbundries";
+import { Support } from "./components/userspace/Support";
 
 function App() {
-  // const [Loading , setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   let location = useLocation();
   let path = location.pathname;
-  let navigate = useNavigate();
 
-  // useEffect(() => {
-  //   console.log(auth)
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       const uid = user.uid;
-  //       console.log(uid)
-  //       setLoading(false)
-  //       navigate('/account')
-
-  //     } else {
-  //       console.log('log out')
-  //       setLoading(false)
-
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  }, []);
 
   return (
     <>
       <Contextprovider>
-
-        {/* <ErrorBoundary > */}
         <div className="App mx-auto px-4  relative ">
-          {!path.includes("account") && !path.includes("error") && <Header />}
+          {!path.includes("account") && !path.includes("error") && (
+            <Header isLoggedIn={isLoggedIn} />
+          )}
           <Routes>
             <Route exact path="/" element={<LandingPage />}></Route>
             <Route exact path="/login" element={<Login />}></Route>
@@ -62,28 +49,13 @@ function App() {
               <Route index element={<Maindash />} />
               <Route exact path="orders" element={<Orders />} />
               <Route exact path="Setting" element={<Simcardmanagement />} />
-              <Route
-                exact
-                path="profile"
-                element={
-                  // <ErrorBoundary fallback={<p>Something went wrong</p>}>
-                    <Profile />
-                  // </ErrorBoundary>
-                }
-              />
+              <Route exact path="profile" element={<Profile />} />
               <Route exact path="neworder" element={<OrderPage />} />
+              <Route exact path="support" element={<Support />} />
             </Route>
           </Routes>
         </div>
-        {/* </ErrorBoundary> */}
       </Contextprovider>
-      {/* { Loading &&     <div className="absolute  w-full h-screen z-11 top-0 bg-blue-950/80 flex justify-center items-center ">
-        <DotWave
-        size={47}
-        speed={1}
-        color="white"
-        />
-</div> } */}
     </>
   );
 }
