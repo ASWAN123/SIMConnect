@@ -162,8 +162,8 @@ const Basic_setting = () => {
                     class="w-6 h-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d={y.imageSrc}
                     />
                   </svg>

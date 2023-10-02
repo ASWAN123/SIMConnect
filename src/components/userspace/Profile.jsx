@@ -63,7 +63,7 @@ export const Profile = () => {
 
       <div className="w-full flex gap-2 ">
         <div className="w-[300px]  flex flex-col gap-2 items-center p-2 bg-gradient-to-br from-bg-white to-bg-gray-50">
-            <img  src="./images/userprofile.png" className="w-[150px]" alt="" />
+            <img  src="../images/userprofile.png" className="w-[150px]" alt="" />
 
           <p className="text-[16px] font-semibold ">{userData.last_name} {userData.first_name}</p>
           <p className="text-[16px] font-semibold flex flex-col gap-2 items-center">Registered since : <span>{userData.signupdate}</span></p>
