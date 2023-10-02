@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useContextData } from "../../ContextData";
-import { Link, redirect, useLocation, useNavigate, useNavigation, useOutletContext } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import firebase from 'firebase/compat/app' ;
 
 
@@ -19,7 +19,7 @@ const Step5 = ({ watch ,  userData  }) => {
   
 
 
-
+  console.log(path)
 
   useEffect(() => {
     if( path === "/SIMConnect/signup"){
@@ -34,7 +34,7 @@ const Step5 = ({ watch ,  userData  }) => {
           let  dataclone = {...data }
           delete dataclone.password
           let date  = new  Date()
-          await db.collection('simconnect').doc(user.uid).set({...dataclone , messages:[{From:'Network' ,  subject:'Welcome' , description:'What are your initial impressions of our website? Is there anything specific that stands out to you, whether positive or constructive feedback?' }]  , signupdate:date.getFullYear() ,  id: user.uid })
+          await db.collection('simconnect').doc(user.uid).set({...dataclone , signupdate:date.getFullYear() ,  id: user.uid })
           setLoading(false)
           setShowCongrats(true)
           return user;
