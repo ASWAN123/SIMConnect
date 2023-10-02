@@ -6,7 +6,7 @@ import Footer from './LandingFolder/Footer'
 
 function LandingPage() {
   return (
-    <main className="border-green-500 px-4 ">
+    <main className=" px-4 ">
 
     {/* main jsx */}
     <Main />

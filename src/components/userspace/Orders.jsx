@@ -37,7 +37,7 @@ const Orders = () => {
   }
 
   return (
-    <div className="mt-8 w-full mb-[100px]  h-[500px] border relative ">
+    <div className="mt-8 w-full mb-[100px]  h-[500px]  relative ">
       <div className="flex items-center justify-between ">
         <h1 className="text-[24px] text-gray-600 ">Orders History</h1>
         { userData.subscriptions.length < 3 && <button onClick ={createNewOrder} className="px-6 py-2  bg-green-500 text-white rounded-sm ">
