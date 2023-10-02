@@ -20,7 +20,7 @@ const Dashbaord = () => {
         setUserID(user.uid);
         setLoading(false);
       } else {
-        navigate("/login");
+        navigate("/SIMConnect/login");
         setLoading(false);
       }
     });

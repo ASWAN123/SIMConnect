@@ -51,7 +51,7 @@ const SimCards = ({userData}) => {
 
   const createNewOrder = () => {
 
-    navigate('/account/neworder', { state: userData });
+    navigate('/SIMConnect/account/neworder', { state: userData });
   }
 
 

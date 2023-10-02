@@ -10,20 +10,20 @@ const Dashheader = () => {
   let navigate  = useNavigate()
 
   const linksData = [
-    { to: "/account", text: "Dashboard" },
-    { to: "/account/orders", text: "Orders" },
-    { to: "/account/Setting", text: "Setting" },
-    { to: "/account/profile", text: "Profile" },
-    { to: "/account/support", text: "Support" },
+    { to: "/SIMConnect/account", text: "Dashboard" },
+    { to: "/SIMConnect/account/orders", text: "Orders" },
+    { to: "/SIMConnect/account/Setting", text: "Setting" },
+    { to: "/SIMConnect/account/profile", text: "Profile" },
+    { to: "/SIMConnect/account/support", text: "Support" },
   ];
 
 
 const logout = async () => {
   let x  = await signOut(auth).then(() => {
     // Sign-out successful.
-    navigate("/login")
+    navigate("/SIMConnect/login")
   }).catch((error) => {
-    navigate('/error')
+    navigate('/SIMConnect/error')
   });
 }
 

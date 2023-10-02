@@ -30,11 +30,11 @@ function Login() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate("/account");
+        navigate("/SIMConnect/account");
       })
       .catch((error) => {
         setchecking(false);
-        navigate('/error' ,  {state: error.message})
+        navigate('/SIMConnect/error' ,  {state: error.message})
       });
   };
 
@@ -127,7 +127,7 @@ function Login() {
         <p>forget password ?</p>
         <div className="flex gap-1 items-center">
           <p>Don't have an account ? </p>
-          <Link to="/signup" className="text-blue-800 py-1 rounded-sm ">
+          <Link to="/SIMConnect/signup" className="text-blue-800 py-1 rounded-sm ">
             Sign up
           </Link>
         </div>

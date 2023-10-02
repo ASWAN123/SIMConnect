@@ -49,7 +49,7 @@ export const Profile = () => {
           setUpdatedProfile(true)
         }).catch((error) => {
          
-          navigate('/error' , { state : error.message } )
+          navigate('/SIMConnect/error' , { state : error.message } )
           
         });
         

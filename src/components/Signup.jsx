@@ -48,7 +48,7 @@ function Signup({userData}) {
 
 
   useEffect(() => {
-    if(path === '/account/neworder'){
+    if(path === '/SIMConnect/account/neworder'){
       setFormstep(2)
       
     }
@@ -61,7 +61,7 @@ function Signup({userData}) {
       <form action="" className=" w-full flex flex-col gap-2 justify-between ">
         {/* peronal  information */}
 
-         { path !== '/account/neworder' && formstep === 1 && (
+         { path !== '/SIMConnect/account/neworder' && formstep === 1 && (
           <Step1
             register={register}
             errors={errors}
@@ -86,7 +86,7 @@ function Signup({userData}) {
 
         {/* buttons */}
         <div className="w-full  flex gap-4 items-center justify-end mt-6 p-2 fixed z-30 bottom-4  right-8 ">
-          {formstep >= 2 && path === "/signup" && formstep <= 4 && (
+          {formstep >= 2 && path === "/SIMConnect/signup" && formstep <= 4 && (
             <input
               type="button"
               value="Back"

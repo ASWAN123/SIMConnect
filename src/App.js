@@ -41,11 +41,11 @@ function App() {
             <Header isLoggedIn={isLoggedIn} />
           )}
           <Routes>
-            <Route exact path="/" element={<LandingPage />}></Route>
-            <Route exact path="/login" element={<Login />}></Route>
-            <Route exact path="/signup" element={<Signup />}></Route>
-            <Route exact path="/error" element={<Errorpage />}></Route>
-            <Route exact path="/account" element={<Dashbaord />}>
+            <Route exact path="/SIMConnect" element={<LandingPage />}></Route>
+            <Route exact path="/SIMConnect/login" element={<Login />}></Route>
+            <Route exact path="/SIMConnect/signup" element={<Signup />}></Route>
+            <Route exact path="/SIMConnect/error" element={<Errorpage />}></Route>
+            <Route exact path="/SIMConnect/account" element={<Dashbaord />}>
               <Route index element={<Maindash />} />
               <Route exact path="orders" element={<Orders />} />
               <Route exact path="Setting" element={<Simcardmanagement />} />

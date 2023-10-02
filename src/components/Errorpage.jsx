@@ -13,7 +13,7 @@ const Errorpage = () => {
                 <img className='w-[400px]' src="/images/error.gif" alt="" />
                 <p className='text-lg'>something really bad happend </p>
                 {location?.state && <p>{location.state}</p>}
-                <Link to="/" className='px-6 py-2 rounded-md bg-green-500 '>Home</Link>
+                <Link to="/SIMConnect" className='px-6 py-2 rounded-md bg-green-500 '>Home</Link>
             </div>
       
     </div>

@@ -8,7 +8,7 @@ const OrderPage = () => {
 
   useEffect(() => {
     if (userData.subscriptions.length >= 3 ) {
-      navigate('/account')
+      navigate('/SIMConnect/account')
       return 
     }
   } ,  [] )

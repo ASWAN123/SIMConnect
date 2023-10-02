@@ -39,7 +39,7 @@ const Step5 = ({ watch ,  userData  }) => {
           setShowCongrats(true)
           return user;
         } catch (error) {
-          navigate('/error' ,  {state: error.message})
+          navigate('/SIMConnect/error' ,  {state: error.message})
         }
       };
   
@@ -89,7 +89,7 @@ const Step5 = ({ watch ,  userData  }) => {
               congratulations !
             </p>
             <p>You are all set , Well done</p>
-            <Link to='/account' className="px-8 py-2 cursor-pointer bg-green-500 text-white text-center rounded-md text-[16px]">
+            <Link to='/SIMConnect/account' className="px-8 py-2 cursor-pointer bg-green-500 text-white text-center rounded-md text-[16px]">
               Continue
             </Link>
           </div>
