@@ -73,7 +73,7 @@ const Step5 = ({ watch ,  userData  }) => {
     <section className="w-[80%] min-h-[300px] mx-auto py-1  relative ">
       {loading && (
         <img
-           src="./laoding gif.gif"
+           src="./images/laoding gif.gif"
           className=" mix-blend-multiply absolute top-1/2 left-1/2 transform -translate-x-1/2  -translate-y-1/2 mx-auto"
           alt=""
         />
