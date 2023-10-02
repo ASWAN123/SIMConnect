@@ -57,3 +57,11 @@ html {
   content: '';
   margin-top: 5vh; 
 }
+
+
+@media only screen and (max-width: 768px) {
+  /* Hide everything */
+  body *{
+    display: none;
+  }
+}
