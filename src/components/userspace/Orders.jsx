@@ -71,7 +71,7 @@ const Orders = () => {
                     <td className="bg-white last:rounded-r-lg first:rounded-l-lg  py-3 px-1 flex gap-2 items-center">
                       <img
                         className="w-[30px]"
-                        src="/images/profileimage.png"
+                         src="./images/profileimage.png"
                         alt=""
                       />
                       <p>{userData.first_name+ ' ' +userData.last_name}</p>

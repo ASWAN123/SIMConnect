@@ -4,7 +4,7 @@ const Todayusage = () => {
   const [highlighted, setHighlighted] = useState(false);
   const [data, setData] = useState([
     {
-      appImage: "/images/chrome.png",
+      appImage: "./images/chrome.png",
       appName: "Chrome",
       dataUsage: 745,
       status: "Running",
@@ -12,7 +12,7 @@ const Todayusage = () => {
       networkAccess: "On",
     },
     {
-      appImage: "/images/instagram.png",
+      appImage: "./images/instagram.png",
       appName: "instagram",
       dataUsage: 2000,
       status: "Sleeping",
@@ -20,7 +20,7 @@ const Todayusage = () => {
       networkAccess: "Off",
     },
     {
-      appImage: "/images/twitter.png",
+      appImage: "./images/twitter.png",
       appName: "Twitter",
       dataUsage: 1012,
       status: "Running",
@@ -28,7 +28,7 @@ const Todayusage = () => {
       networkAccess: "On",
     },
     {
-      appImage: "/images/poinaccess.png",
+      appImage: "./images/poinaccess.png",
       appName: "hotspot",
       dataUsage: 4030,
       status: "Running",
@@ -36,7 +36,7 @@ const Todayusage = () => {
       networkAccess: "On",
     },
     {
-      appImage: "/images/tiktok.png",
+      appImage: "./images/tiktok.png",
       appName: "Tiktok",
       dataUsage: 500,
       status: "Sleeping",
@@ -44,7 +44,7 @@ const Todayusage = () => {
       networkAccess: "Off",
     },
     {
-      appImage: "/images/linkdin.png",
+      appImage: "./images/linkdin.png",
       appName: "linkdin",
       dataUsage: 260,
       status: "Running",
@@ -52,7 +52,7 @@ const Todayusage = () => {
       networkAccess: "On",
     },
     {
-      appImage: "/images/whatsap.png",
+      appImage: "./images/whatsap.png",
       appName: "whatsap",
       dataUsage: 50,
       status: "Sleeping",

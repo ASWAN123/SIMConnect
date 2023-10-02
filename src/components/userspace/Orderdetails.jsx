@@ -26,7 +26,7 @@ const Orderdetails = ({setShowDetails ,  showDetails}) => {
               onClick={() => {setShowDetails({...showDetails ,  show:false})}}
               className=" rounded-full  absolute right-1 -top-5 "
             />
-            <img src="/images/complete.png" className="w-[50px] mx-auto rounded-lg" alt="" />
+            <img  src="./images/complete.png" className="w-[50px] mx-auto rounded-lg" alt="" />
             <p className="text-center w-full text-[20px] text-green-700">
               Thank You For Your Purchase !{" "}
             </p>

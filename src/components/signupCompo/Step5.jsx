@@ -69,7 +69,7 @@ const Step5 = ({ watch ,  userData  }) => {
     <section className="w-[80%] min-h-[300px] mx-auto py-1  relative ">
       {loading && (
         <img
-          src="./laoding gif.gif"
+           src="../laoding gif.gif"
           className=" mix-blend-multiply absolute top-1/2 left-1/2 transform -translate-x-1/2  -translate-y-1/2 mx-auto"
           alt=""
         />
@@ -82,7 +82,7 @@ const Step5 = ({ watch ,  userData  }) => {
           <div className="flex flex-col gap-2 items-center justify-center z-20  ">
             <img
               className="w-[150px] mix-blend-multiply  "
-              src="/images/animation_lmi4a4zk_small.gif"
+               src="./images/animation_lmi4a4zk_small.gif"
               alt=""
             />
             <p className="text-[16px] text-black font-bold ">

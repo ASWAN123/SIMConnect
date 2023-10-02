@@ -117,7 +117,7 @@ const SimCards = ({userData}) => {
             key={index}
             className="relative w-[300px] h-[200px]    top-0 left-0 ml-4 mt-2 rounded-lg text-[14px] flex flex-col "
           >
-            <img className="" src="/images/simcard.png" alt="" />
+            <img className=""  src="./images/simcard.png" alt="" />
             <div className="absolute flex flex-col w-full  pl-2 py-2 gap-2 ">
               <div className="flex flex-col gap-1 ">
                 <p className="">
