@@ -22,7 +22,7 @@ const Step5 = ({ watch ,  userData  }) => {
 
 
   useEffect(() => {
-    if( path === "/signup"){
+    if( path === "/SIMConnect/signup"){
       let data = watch() ;
       let email = data.email ; 
       let password = data.password ; 
@@ -46,11 +46,15 @@ const Step5 = ({ watch ,  userData  }) => {
       registerNewUser(email, password)
       return
     }
-    if (path === '/account/neworder'){
+    if (path === '/SIMConnect/account/neworder'){
       const addSubscription = async () => {
         let data = watch()
         let newsub = data.subscriptions[0]
-        await db.collection('simconnect').doc(userData.id).update({   subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })})
+        await db.collection('simconnect').doc(userData.id).update({   subscriptions:firebase.firestore.FieldValue.arrayUnion({...newsub ,  date:new Date() })}).then(() => {
+          console.log('added')
+        }).catch((error) => {
+          navigate('/SIMConnect/error' ,  {state: error.message})
+        })
         setLoading(false)
         setShowCongrats(true)
       }
@@ -69,7 +73,7 @@ const Step5 = ({ watch ,  userData  }) => {
     <section className="w-[80%] min-h-[300px] mx-auto py-1  relative ">
       {loading && (
         <img
-           src="../laoding gif.gif"
+           src="./laoding gif.gif"
           className=" mix-blend-multiply absolute top-1/2 left-1/2 transform -translate-x-1/2  -translate-y-1/2 mx-auto"
           alt=""
         />
