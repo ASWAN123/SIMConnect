@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.13bc06e0.css",
-    "main.js": "/static/js/main.4543d0cc.js",
-    "index.html": "/index.html",
-    "main.13bc06e0.css.map": "/static/css/main.13bc06e0.css.map",
-    "main.4543d0cc.js.map": "/static/js/main.4543d0cc.js.map"
+    "main.css": "/SIMConnect/static/css/main.13bc06e0.css",
+    "main.js": "/SIMConnect/static/js/main.f1662795.js",
+    "index.html": "/SIMConnect/index.html",
+    "main.13bc06e0.css.map": "/SIMConnect/static/css/main.13bc06e0.css.map",
+    "main.f1662795.js.map": "/SIMConnect/static/js/main.f1662795.js.map"
   },
   "entrypoints": [
     "static/css/main.13bc06e0.css",
-    "static/js/main.4543d0cc.js"
+    "static/js/main.f1662795.js"
   ]
 }
