@@ -64,7 +64,7 @@ export const Support = () => {
         <input
           value="Send"
           type="submit"
-          className="w-fit outline-none  rounded-md px-6 py-2 bg-green-600 text-white "
+          className="w-fit outline-none  rounded-sm  px-6 py-3 bg-blue-500 text-white "
         />
       </form>
       {sent && <p className="text-green-400 text-[12px] mx-auto w-fit">Message has been sent</p>}

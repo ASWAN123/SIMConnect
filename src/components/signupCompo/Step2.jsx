@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid';
 
 const Step2 = ({ setValue='' }) => {
+
     const unique_id = uuid();
     const small_id = unique_id.slice(0,10)
     const [subscription, setSubscription] = useState(0);
